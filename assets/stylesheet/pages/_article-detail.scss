@@ -1,0 +1,235 @@
+.article-detail {
+  @include pxRem(border-radius, 5);
+  .main {
+    .article-wrapper {
+      @include border(1, map-get($color, grey-h));
+      background-color: map-get($color, white-a);
+    }
+  }
+  .author-img {
+    @include pxRem(width, 32);
+    @include pxRem(height, 32);
+    @include pxRem(margin-right, 10);
+    @include border-radius(50%);
+    object-fit: cover;
+  }
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  .sidebar-left {
+    @include pxRem(margin-top, 8);
+    &-content {
+      height: 100%;
+      @include pxRem(padding, 20 0);
+      .pin {
+        @include pxRem(padding, 25 0);
+        .icon {
+          @include pxRem(padding, 10);
+          @include pxRem(font-size, 24);
+          border-radius: 50%;
+        }
+        .like {
+          color: map-get($color, danger);
+          background-color: map-get($color, pink);
+        }
+        .fa-heart {
+          cursor: pointer;
+          &:hover {
+            color: map-get($color, danger);
+            background-color: map-get($color, pink);
+          }
+        }
+        .bookMark,
+        .fa-bookmark:hover {
+          @include pxRem(padding, 10 13);
+          color: map-get($color, primary);
+          background-color: map-get($color, blue-bm);
+          cursor: pointer;
+        }
+        &-icon {
+          @include pxRem(width, 28);
+          height: auto;
+          cursor: pointer;
+        }
+        &-count {
+          @include pxRem(padding-top, 6);
+        }
+      }
+    }
+  }
+  .article-section {
+    @include pxRem(padding, 32 64);
+    .article-body {
+      @include pxRem(padding, 32 0);
+    }
+    .article-meta {
+      @include pxRem(padding, 10 0);
+    }
+    .btn-secondary {
+      @include pxRem(padding, 4 12);
+      font-size: map-get($font-size, sm);
+      font-weight: map-get($font-weight, light);
+      color: map-get($color, black-b);
+      background-color: map-get($color, secondary);
+      &:hover {
+        background-color: map-get($color, grey-hv);
+      }
+    }
+    .article-author-name {
+      @include pxRem(font-size, 16);
+      font-weight: map-get($font-weight, bold);
+    }
+    .article-time {
+      font-size: map-get($font-size, sm);
+      font-weight: map-get($font-weight, regular);
+    }
+    .article-title {
+      @include pxRem(padding, 10 0);
+      @include pxRem(font-size, 36);
+      @include pxRem(line-height, 42);
+      font-weight: map-get($font-weight, bold);
+    }
+    .article-info {
+      font-size: map-get($font-size, normal);
+      font-weight: map-get($font-weight, light);
+    }
+    .article-description {
+      @include pxRem(font-size, 20);
+      font-weight: map-get($font-weight, bold);
+      word-break: break-word;
+    }
+    .article-img {
+      width: 100%;
+    }
+    .article-content {
+      @include pxRem(padding, 16 32);
+      word-break: break-word;
+      span {
+        @include pxRem(font-size, 18 !important);
+        @include pxRem(line-height, 36);
+      }
+    }
+    .article-action {
+      .btn {
+        color: black;
+        font-size: map-get($font-size, sm);
+        font-weight: map-get($font-weight, regular);
+      }
+      .btn-secondary {
+        background-color: map-get($color, grey-d);
+        &:hover {
+          background-color: map-get($color, grey-e);
+        }
+      }
+    }
+  }
+  .sidebar-right {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    .author-wrapper {
+      @include pxRem(padding, 10);
+      background-color: map-get($color, grey-b);
+    }
+    .author-img {
+      @include pxRem(width, 40);
+      @include pxRem(height, 40);
+      object-fit: cover;
+    }
+    .author-name {
+      @include pxRem(font-size, 16);
+      font-weight: map-get($font-weight, bold);
+    }
+    .author-detail {
+      font-size: map-get($font-size, sm);
+      @include pxRem(font-size, 13);
+      color: map-get($color, grey-i);
+      .author-type {
+        font-weight: map-get($font-weight, bold);
+      }
+    }
+    .feed-header {
+      font-weight: map-get($font-weight, bold);
+      border-bottom: convertPxToRem(1) solid map-get($color, grey-c);
+      .author-name {
+        color: map-get($color, primary);
+        cursor: pointer;
+      }
+    }
+    .feed-item {
+      border-bottom: convertPxToRem(1) solid map-get($color, grey-c);
+      &:hover {
+        color: map-get($color, primary);
+        background-color: map-get($color, white-a);
+      }
+    }
+    .feed-title {
+      cursor: pointer;
+    }
+    .line {
+      @include pxRem(height, 6);
+      background-color: map-get($color, grey-d);
+      border: 0;
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, medium)) {
+  .article-detail {
+    .sidebar-left {
+      @include box-shadow(10px 0 5px 5px map-get($color, grey-hv));
+      background-color: map-get($color, grey-b);
+      display: block;
+      position: fixed;
+      top: unset;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99;
+      &-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        .pin {
+          display: flex;
+          flex-direction: row;
+          padding: 0;
+        }
+        .icon {
+          @include pxRem(margin-right, 20);
+        }
+      }
+    }
+    .article-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .meta-author {
+      padding: 10px 0;
+    }
+    .article-author-name {
+      padding-right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, small)) {
+  .article-detail {
+    .article-section {
+      @include pxRem(padding, 24 40);
+      .meta-author {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .article-time {
+        padding: 5px 0 5px 6px;
+      }
+    }
+  }
+}

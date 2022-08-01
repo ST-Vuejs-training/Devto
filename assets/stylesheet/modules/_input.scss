@@ -1,0 +1,14 @@
+.input-text {
+  @include pxRem(padding, 6 12);
+  @include pxRem(min-width, 250);
+  @include pxRem(border-width, 1);
+  @include border-radius(4);
+  background-color: map-get($color, grey-b);
+
+  &:focus {
+    @include pxRem(border-width, 1);
+    background-color: map-get($color, white-a);
+    border-color: map-get($color, primary);
+    outline: 0;
+  }
+}

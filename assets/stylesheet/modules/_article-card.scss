@@ -1,0 +1,62 @@
+.article {
+  @include pxRem(border-radius, 5);
+  position: relative;
+  background-color: map-get($color, white-a);
+  border: 0.5px solid map-get($color, grey-h);
+  .author-img {
+    @include pxRem(width, 32);
+    @include pxRem(height, 32);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &-meta {
+    line-height: 1em;
+  }
+  &-author-name {
+    @include pxRem(font-size, map-get($font-size, normal));
+    font-weight: map-get($font-weight, bold);
+  }
+  &-time {
+    @include pxRem(font-size, map-get($font-size, xs));
+    font-weight: map-get($font-weight, regular);
+  }
+  &-title {
+    @include pxRem(font-size, map-get($font-size, xxl));
+    font-weight: map-get($font-weight, bold);
+  }
+  &-description {
+    @include pxRem(font-size, map-get($font-size, normal));
+    @include pxRem(line-height, 25);
+    font-weight: map-get($font-weight, light);
+  }
+  &-action {
+    .btn {
+      @include pxRem(font-size, map-get($font-size, sm));
+      color: map-get($color, black);
+      font-weight: map-get($font-weight, regular);
+    }
+    .btn-flat-primary {
+      @include pxRem(padding, 5 10);
+      &:hover {
+        background-color: map-get($color, grey-g);
+      }
+    }
+    .btn-secondary {
+      background-color: map-get($color, grey-d);
+      &:hover {
+        background-color: map-get($color, grey-e);
+      }
+    }
+    .far {
+      @include pxRem(font-size, map-get($font-size, lg));
+    }
+  }
+  &-body {
+    @include pxRem(padding-left, 40);
+  }
+  .float-right {
+    @include pxRem(top, 16);
+    @include pxRem(right, 16);
+    position: absolute;
+  }
+}

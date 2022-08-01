@@ -1,0 +1,76 @@
+.flex {
+  display: flex;
+}
+
+.fl-row {
+  @extend .flex;
+  flex-direction: row;
+}
+
+.fl-row-rev {
+  @extend .flex;
+  flex-direction: row-reverse;
+}
+
+.fl-column {
+  @extend .flex;
+  flex-direction: column;
+}
+
+.fl-center-x {
+  @extend .flex;
+  justify-content: center;
+}
+
+.fl-center-y {
+  @extend .flex;
+  align-items: center;
+}
+
+.fl-space-between {
+  @extend .flex;
+  justify-content: space-between;
+}
+
+.fl-1 {
+  flex: 1;
+}
+
+.fl-2 {
+  flex: 2;
+}
+
+.container-fluid {
+  max-width: 100%;
+}
+
+.container {
+  @include pxRem(max-width, 1152);
+  margin: 0 auto;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.d-hide {
+  display: none;
+}
+
+@media screen and (max-width: map-get($screen-size, md)) {
+  .md-hide {
+    display: none;
+  }
+  .md-visiable {
+    display: block;
+  }
+}
+
+@media screen and (max-width: map-get($screen-size, sm)) {
+  .sm-hide {
+    display: none;
+  }
+  .sm-visiable {
+    display: block;
+  }
+}

@@ -1,0 +1,45 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.5;
+  transition: all 0.3s;
+}
+html,
+body {
+  @include pxRem(font-size, 16);
+  font-family: $font-body;
+  position: relative;
+  font-weight: 300;
+  color: map-get($color, black-a);
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+  background-color: map-get($color, white-a);
+  overscroll-behavior: contain;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: map-get($color, black-a);
+  &:hover {
+    color: map-get($color, primary);
+  }
+  &:visited {
+    color: map-get($color, black-a);
+  }
+}
+button {
+  border: none;
+}
+textarea {
+  resize: none;
+}

@@ -1,0 +1,50 @@
+.comment-section {
+  @include pxRem(padding, 32 64);
+  border-top: convertPxToRem(1) solid map-get($color, grey-d);
+  .author {
+    font-weight: map-get($font-weight, bold);
+  }
+  .author-time {
+    @include pxRem(font-size, 13);
+  }
+  .title {
+    @include pxRem(font-size, 24);
+
+    font-weight: map-get($font-weight, bold);
+  }
+  .comment-content {
+    width: 100%;
+  }
+  .comment-btn {
+    cursor: pointer;
+    &:hover {
+      @include border-radius(5%);
+      background-color: map-get($color, grey-a);
+    }
+  }
+  .comment-icon {
+    @include pxRem(width, 40);
+    height: auto;
+  }
+
+  .comment-box {
+    @include border-radius(10%);
+    transition: none 0s ease 0s;
+    &:focus {
+      @include pxRem(height, 128);
+      @include box-shadow(0 0 5px map-get($color, primary));
+      border-color: map-get($color, primray);
+      outline: 0;
+    }
+  }
+  .comment-box-text {
+    @include border-radius(10px);
+    @include border(1, map-get($color, grey-h));
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, medium)) {
+  .comment-section {
+    @include pxRem(padding, 16 32);
+  }
+}

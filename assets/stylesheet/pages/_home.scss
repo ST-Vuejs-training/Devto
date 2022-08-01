@@ -1,0 +1,42 @@
+.home-page {
+  min-height: 90vh;
+  background-color: map-get($color, grey-d);
+  .pagination {
+    @include pxRem(max-width, 650);
+    margin: 0 auto;
+  }
+  .pagination {
+    &-bar {
+      margin: auto;
+    }
+  }
+  .section-title {
+    font-size: map-get($font-size, xxl);
+    font-weight: map-get($font-weight, bold);
+  }
+  .nav-tab {
+    &-item {
+      font-size: map-get($font-size, normal);
+      font-weight: map-get($font-weight, light);
+      border-bottom: 2px solid transparent;
+      &:hover {
+        @include border-radius(4);
+        background-color: map-get($color, grey-f);
+        color: map-get($color, priamry);
+        border-bottom: 2px solid map-get($color, grey-h);
+      }
+      &.selected {
+        @include pxRem(border-radius, 4 4 0 0);
+        font-weight: map-get($font-weight, bold);
+        border-bottom: 2px solid map-get($color, primary);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, small)) {
+  .MuiPaginationItem-root {
+    @include pxRem(min-width, 32);
+    @include pxRem(height, 32);
+  }
+}

@@ -1,0 +1,79 @@
+// == Breakpoints ===
+$breakpoints: (
+  small: 480px,
+  medium: 768px,
+  wide: 960px,
+  large: 1024px,
+  largest: 1280px,
+  super-largest: 1441px,
+);
+
+$grid-column: 12;
+$grid-gutter: 20;
+
+$screen-size: (
+  lg: '',
+  md: 1024px,
+  sm: 768px,
+  xs: 480px,
+);
+
+$screen-gutter-x: (
+  lg: 16,
+  md: 12,
+  sm: 8,
+  xs: 4,
+);
+$screen-gutter-y: (
+  lg: 16,
+  md: 12,
+  sm: 8,
+  xs: 4,
+);
+
+$color: (
+  primary: #3b49df,
+  orange-a: #a17143,
+  grey-a: #f3f3f3,
+  grey-b: #f9fafa,
+  grey-c: #d7dbd2,
+  grey-d: #eef0f1,
+  grey-e: #dedede,
+  grey-f: #d2d6db,
+  grey-g: #f6f6f6,
+  grey-h: #cecece,
+  grey-i: #64707d,
+  white-a: #ffffff,
+  grey-hv: #b5bdc4,
+  black-a: #000000,
+  black-b: #363d44,
+  danger: #f00,
+  green-bm: #1bb54e,
+  pink: pink,
+  gren-bg: #26d9ca,
+  blue-bm: #679bf0,
+  blue-fb: #0096f2,
+);
+
+$font-size: (
+  xs: 11px,
+  sm: 13px,
+  smm: 14px,
+  normal: 16px,
+  lg: 18px,
+  xl: 20px,
+  xxl: 24px,
+  xxxl: 30px,
+  xlg: 36px,
+  xxlg: 48px,
+);
+
+$font-weight: (
+  light: 300,
+  regular: 400,
+  sight: 500,
+  bold: 700,
+);
+
+$font-body: 'Poppins', sans-serif;
+$font-japan: serif;

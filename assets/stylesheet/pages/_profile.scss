@@ -1,0 +1,93 @@
+.profile-page {
+  min-height: 75vh;
+  background-color: map-get($color, grey-d);
+  .profile-section {
+    .section-header {
+      @include pxRem(height, 130);
+      background-color: map-get($color, black-a);
+    }
+  }
+  .section-body {
+    @include pxRem(max-width, 1000);
+    margin: 0 auto;
+  }
+  .profile {
+    @include pxRem(padding, 24);
+    @include border-radius(4);
+    @include pxRem(margin-top, -50);
+    position: relative;
+    background-color: map-get($color, white-a);
+    &-header {
+      position: relative;
+    }
+    &-body {
+      @include pxRem(margin-top, 60);
+    }
+    &-action {
+      @include pxRem(top, 24);
+      @include pxRem(right, 24);
+      position: absolute;
+    }
+    &-name {
+      @include pxRem(font-size, map-get($font-size, xxxl));
+      font-weight: map-get($font-weight, bold);
+    }
+    &-avatar {
+      @include pxRem(width, 132);
+      @include pxRem(height, 132);
+      @include border-radius(65);
+      position: absolute;
+      top: 0;
+      transform: translateY(calc(-50% - 24px));
+      background-color: map-get($color, black-a);
+      &-img {
+        @include pxRem(width, 120);
+        @include pxRem(height, 120);
+        @include border-radius(60);
+      }
+    }
+    &-time {
+      @include pxRem(font-size, map-get($font-size, smm));
+      color: map-get($color, grey-i);
+    }
+  }
+  .sub-infor-group {
+    @include border-radius(4);
+    font-size: map-get($font-size, normal);
+    font-weight: map-get($font-weight, light);
+    background-color: map-get($color, white-a);
+    .sub-infor-item {
+      @include pxRem(padding, 10 8);
+    }
+    .item-icon {
+      @include pxRem(width, 24);
+      @include pxRem(height, 24);
+      i {
+        font-size: map-get($font-size, normal);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, medium)) {
+  .profile-page {
+    .profile-header {
+      justify-content: flex-start;
+    }
+    .profile-avatar {
+      @include pxRem(width, 90);
+      @include pxRem(height, 90);
+    }
+    .profile-avatar-img {
+      @include pxRem(width, 80);
+      @include pxRem(height, 80);
+    }
+    .profile-body {
+      @include pxRem(margin-top, 50);
+      @include pxRem(padding-bottom, 20);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

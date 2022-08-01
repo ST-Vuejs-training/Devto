@@ -1,0 +1,76 @@
+.register-section {
+  @include pxRem(max-width, 680);
+  @include pxRem(padding, 48);
+  @include border-radius(5);
+  margin: auto;
+
+  background-color: map-get($color, white-a);
+  .section-header {
+    text-align: center;
+    .register-title {
+      @include pxRem(font-size, 30);
+      font-weight: map-get($font-weight, sight);
+    }
+    .register-link:hover {
+      color: map-get($color, primary);
+      text-decoration: underline;
+    }
+  }
+  .section-body {
+    .register-network {
+      .btn {
+        @include pxRem(padding, 8 0);
+        font-weight: map-get($font-weight, light);
+      }
+    }
+    .gmail {
+      color: map-get($color, black-a);
+      background-color: map-get($color, grey-g);
+    }
+    .network-icon {
+      @include pxRem(width, 26);
+      @include pxRem(margin-right, 10);
+      height: auto;
+    }
+    .register-hr {
+      @include pxRem(margin, 20 0 10 0);
+      .hr-txt {
+        font-size: map-get($font-size, smm);
+      }
+    }
+    .register-field {
+      @include pxRem(margin-bottom, 14);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .register-label {
+      @include pxRem(margin, 8 0);
+      font-weight: map-get($font-weight, regular);
+    }
+    .input-date {
+      @include pxRem(padding, 5);
+      width: fit-content;
+    }
+    .error {
+      @include pxRem(font-size, map-get($font-size, sm));
+      color: map-get($color, danger);
+    }
+    .register-submit {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: map-get($breakpoints, medium)) {
+  .register-section {
+    .field-res-flex {
+      display: flex;
+      flex-direction: column;
+    }
+    .register-name {
+      margin: 0;
+      width: 100%;
+    }
+  }
+}

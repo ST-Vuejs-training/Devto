@@ -1,0 +1,84 @@
+.profile-update-section {
+  @include pxRem(max-width, 680);
+  @include pxRem(padding, 48);
+  @include border-radius(5);
+  margin: auto;
+
+  background-color: map-get($color, white-a);
+  .section-header {
+    text-align: center;
+    .profile-title {
+      @include pxRem(font-size, 30);
+      font-weight: map-get($font-weight, sight);
+    }
+  }
+  .section-body {
+    .profile {
+      @include pxRem(padding, 24);
+      @include border-radius(4);
+      background-color: map-get($color, white-a);
+      margin-top: 0;
+      .profile-avatar {
+        position: static;
+        top: 0;
+        transform: none;
+      }
+      &-body {
+        @include pxRem(margin-top, 70);
+      }
+      &-action {
+        @include pxRem(top, 24);
+        @include pxRem(right, 24);
+      }
+      &-name {
+        font-size: map-get($font-size, xxl);
+        font-weight: map-get($font-weight, bold);
+      }
+    }
+    .btn-upload {
+      margin: auto;
+    }
+    .profile-hr {
+      @include pxRem(margin, 20 0 10 0);
+      .hr-txt {
+        font-size: map-get($font-size, smm);
+      }
+    }
+    .profile-field {
+      @include pxRem(margin-bottom, 14);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .field-name {
+      width: 40%;
+      .input-name {
+        min-width: 0;
+      }
+    }
+    .profile-label {
+      @include pxRem(margin, 8 0);
+      font-weight: map-get($font-weight, regular);
+    }
+    .input-date {
+      @include pxRem(padding, 5);
+      width: fit-content;
+    }
+    .note {
+      font-size: map-get($font-size, xs);
+    }
+    .change-password {
+      font-size: map-get($font-size, smm);
+      &-link:hover {
+        color: map-get($color, primary);
+      }
+    }
+    .error {
+      font-size: map-get($font-size, sm);
+      color: map-get($color, danger);
+    }
+    .profile-submit {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.article-empty {
+  @include pxRem(padding, 30 0);
+  width: 100%;
+  text-align: center;
+  .empty-title {
+    @include pxRem(font-size, map-get($font-size, normal));
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, small)) {
+  .article-empty {
+    @include pxRem(padding, 90 0);
+  }
+}

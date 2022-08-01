@@ -1,0 +1,46 @@
+.modal {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.4s;
+  pointer-events: none;
+  &-content {
+    @include pxRem(min-width, 375);
+    @include border-radius(4);
+    max-height: 90vh;
+    background-color: map-get($color, white-a);
+  }
+  &-header {
+    @include pxRem(padding, 16);
+    border-bottom: 1px solid map-get($color, grey-h);
+  }
+  &-body {
+    @include pxRem(padding, 16);
+    @include pxRem(min-height, 200);
+    max-height: 70vh;
+    border-bottom: 1px solid map-get($color, grey-h);
+    overflow: auto;
+  }
+  &-footer {
+    @include pxRem(padding, 16);
+    display: flex;
+    justify-content: flex-end;
+  }
+  &-title {
+    font-size: map-get($font-size, xl);
+    font-weight: map-get($font-weight, bold);
+  }
+  &.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    pointer-events: visible;
+    z-index: 1000;
+  }
+}

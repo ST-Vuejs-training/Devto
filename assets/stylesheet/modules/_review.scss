@@ -1,0 +1,38 @@
+.review {
+  @include pxRem(max-width, 850);
+  @include pxRem(padding, 32 64);
+  &-header {
+    @include pxRem(margin-bottom, 30);
+  }
+  &-title {
+    @include pxRem(margin-bottom, 16);
+    font-size: map-get($font-size, xxxl);
+    font-weight: map-get($font-weight, bold);
+  }
+  &-img {
+    @include pxRem(margin-bottom, 24);
+  }
+  &-description {
+    @include pxRem(margin-bottom, 24);
+    font-size: map-get($font-size, xl);
+    font-weight: map-get($font-weight, bold);
+  }
+  &-content {
+    @include pxRem(padding, 16 32);
+    font-size: map-get($font-size, normal);
+  }
+  &-author-img {
+    @include pxRem(width, 32);
+    @include pxRem(margin-right, 12);
+    @include border-radius(16);
+  }
+  &-author-name {
+    @include pxRem(margin-right, 8);
+    font-size: map-get($font-size, normal);
+    font-weight: map-get($font-weight, bold);
+  }
+  &-time {
+    @include pxRem(padding-top, 2);
+    font-size: map-get($font-size, sm);
+  }
+}

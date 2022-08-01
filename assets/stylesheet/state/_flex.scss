@@ -1,0 +1,60 @@
+.container {
+  @include pxRem(max-width, 1280);
+  margin: auto;
+  padding: 0 20px;
+}
+
+.flex-between-x {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-center-x {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-center-y {
+  display: flex;
+  align-items: center;
+}
+
+.flex-end-x {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-start-y {
+  display: flex;
+  align-items: start;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-end-x {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-start-x {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-between-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}

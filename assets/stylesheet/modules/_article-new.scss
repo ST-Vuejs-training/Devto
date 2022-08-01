@@ -1,0 +1,79 @@
+.article-new {
+  @include pxRem(padding, 16 0);
+  .article {
+    @include pxRem(padding, 32 64);
+    @include pxRem(border-radius, 5);
+    @include pxRem(max-width, 800);
+    background-color: map-get($color, white-a);
+    border: 0.5px solid map-get($color, grey-h);
+    .MuiButton-containedPrimary {
+      background-color: map-get($color, primary);
+    }
+    .input-txt {
+      @include pxRem(padding, 6 0);
+      border: 0;
+      &:focus {
+        outline: 0;
+      }
+    }
+    .box {
+      @include pxRem(padding, 16 0);
+    }
+    .author-img {
+      @include pxRem(width, 32);
+      @include pxRem(height, 32);
+      @include pxRem(margin-right, 10);
+      @include border-radius(50%);
+      object-fit: cover;
+    }
+    .label {
+      @include pxRem(font-size, 18);
+      font-weight: map-get($font-weight, bold);
+    }
+    &-title {
+      @include pxRem(padding, 0);
+      @include pxRem(font-size, 32);
+      font-weight: map-get($font-weight, bold);
+      height: auto;
+    }
+    &-description {
+      @include pxRem(padding-top, 16);
+      @include pxRem(font-size, 18);
+    }
+    &-img {
+      width: 100%;
+    }
+    .editor {
+      @include border(1, map-get($color, grey-h));
+    }
+    .editor-content {
+      @include pxRem(padding, 8 10);
+      @include pxRem(min-height, 400);
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, medium)) {
+  .article-new {
+    .article {
+      @include pxRem(padding, 22 44);
+    }
+    .comment-submit {
+      @include pxRem(padding, 0 44);
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, small)) {
+  .article-new {
+    .article {
+      @include pxRem(padding, 16 24);
+    }
+    .article-title {
+      @include pxRem(font-size, 32);
+    }
+    .comment-submit {
+      @include pxRem(padding, 0 24);
+    }
+  }
+}

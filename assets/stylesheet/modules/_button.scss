@@ -1,0 +1,75 @@
+.btn {
+  @include pxRem(padding, 6 24);
+  @include pxRem(border-radius, 4);
+  @include pxRem(font-size, 16);
+  font-weight: map-get($font-weight, bold);
+  color: map-get($color, black-a);
+  border: 0;
+  cursor: pointer;
+  &.btn-primary {
+    color: map-get($color, white-a);
+    background: map-get($color, primary);
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &.btn-outline-primary {
+    @include pxRem(border, 1 solid map-get($color, grey-h));
+    background: map-get($color, white-a);
+    &:hover {
+      @include pxRem(border, 1 solid map-get($color, primary));
+      color: map-get($color, priamry);
+    }
+  }
+  &.btn-secondary {
+    color: map-get($color, black-a);
+    background: map-get($color, grey-d);
+  }
+  &.btn-flat-primary {
+    background: transparent;
+    &:hover {
+      color: map-get($color, primary);
+      background-color: map-get($color, grey-a);
+    }
+  }
+  &.btn-submit {
+    @include pxRem(padding, 12 20);
+    @include pxRem(font-size, 18);
+    @include pxRem(margin-top, 16);
+    color: map-get($color, white-a);
+    background-color: map-get($color, primary);
+    width: 100%;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &.btn-follow {
+    @extend .btn-submit;
+    @include pxRem(padding, 8 16);
+    @include pxRem(margin-top, 0);
+    @include pxRem(font-size, 16);
+    text-align: center;
+  }
+  &.btn-comment {
+    @extend .btn-submit;
+    @include pxRem(padding, 8 16);
+    @include pxRem(font-size, 16);
+    width: max-content;
+    text-align: center;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &.btn-dismiss {
+    @extend .btn-comment;
+    color: map-get($color, black-b);
+    background-color: map-get($color, grey-f);
+  }
+}
+
+.btn-upload {
+  background-color: map-get($color, primary);
+  &:hover {
+    opacity: 0.7;
+  }
+}

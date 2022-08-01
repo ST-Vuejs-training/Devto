@@ -1,0 +1,83 @@
+header.page-header {
+  @include pxRem(padding, 12 0);
+  background-color: map-get($color, white-a);
+  .logo {
+    @include pxRem(width, 40);
+  }
+  .logo-img {
+    width: 100%;
+  }
+  .nav-item {
+    @include pxRem(margin-left, 16);
+    a {
+      font-weight: 300
+    }
+  }
+  .user {
+    position: relative;
+    &:hover {
+      .dropdown {
+        display: block;
+      }
+    }
+  }
+  .user-img-wrapper {
+    @include pxRem(width, 40);
+    @include pxRem(height, 40);
+  }
+  .dropdown {
+    @include pxRem(width, 200);
+    position: absolute;
+    display: none;
+    right: 0;
+    background-color: map-get($color, white-a);
+    border: 0.5px solid map-get($color, grey-h);
+    z-index: 9999;
+    &-item {
+      @include pxRem(padding, 4);
+      &:nth-child(1) {
+        border-bottom: 0.5px solid map-get($color, grey-h);
+      }
+      &:nth-last-child(1) {
+        border-top: 0.5px solid map-get($color, grey-h);
+      }
+      &-link {
+        @include border-radius(4);
+        @include pxRem(padding, 8);
+        width: 100%;
+        height: 100%;
+        font-size: map-get($font-size, sm);
+        font-weight: map-get($font-weight, regular);
+        &:hover {
+          color: map-get($color, primary);
+          background-color: map-get($color, grey-e);
+        }
+      }
+    }
+  }
+  .user-link {
+    @include border-radius(20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    &:hover {
+      border: 0.5px solid map-get($color, grey-h);
+    }
+  }
+  .user-img {
+    @include pxRem(width, 32);
+    @include pxRem(height, 32);
+    @include border-radius(16);
+  }
+}
+
+@media only screen and (max-width: map-get($breakpoints, small)) {
+  header.page-header {
+    position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}

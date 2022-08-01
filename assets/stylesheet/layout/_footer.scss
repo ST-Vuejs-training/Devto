@@ -1,0 +1,39 @@
+.footer-section {
+  @include pxRem(padding, 30);
+  background-color: map-get($color, grey-f);
+  width: 100%;
+  .footer-container {
+    @include pxRem(max-width, 960);
+    margin: auto;
+  }
+  .section-body {
+    @include pxRem(padding, 18);
+  }
+  .general-link,
+  .network-link {
+    @include pxRem(padding, 15);
+  }
+  .general-link {
+    &:visited {
+      color: map-get($color, black-a);
+    }
+    &:hover {
+      color: map-get($color, primary);
+    }
+  }
+  .network-icon {
+    @include pxRem(width, 26);
+    height: auto;
+    cursor: pointer;
+  }
+  .section-footer {
+    @include pxRem(padding, 8 0);
+    @include pxRem(font-size, 12);
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, small)) {
+  html {
+    font-size: map-get($font-size, sm);
+  }
+}

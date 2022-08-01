@@ -1,0 +1,46 @@
+.loading-wrapper {
+  @include pxRem(padding, 20 0);
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
+  display: flex;
+  &-dot {
+    @include pxRem(margin, 0 20);
+    @include pxRem(width, 16);
+    @include pxRem(height, 16);
+    @include border-radius(8);
+    transform: scale(0.5);
+    background-color: map-get($color, grey-h);
+    animation: scaleDot 1.5s linear 0s infinite;
+    &:nth-child(2) {
+      animation-delay: 0.25s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+  }
+}
+
+@keyframes scaleDot {
+  0% {
+    transform: scale(0.5);
+  }
+  20% {
+    transform: scale(0.75);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.25);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}

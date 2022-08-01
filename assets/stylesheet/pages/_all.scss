@@ -1,0 +1,14 @@
+@import 'auth';
+@import 'register';
+@import 'home';
+@import 'login';
+@import 'profile';
+@import 'profile-update';
+@import 'update-password';
+@import 'personal';
+@import 'article-detail';
+
+.page-title {
+  font-size: map-get($font-size, xxl);
+  font-weight: map-get($font-weight, bold);
+}

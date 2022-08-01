@@ -1,0 +1,64 @@
+.login-section {
+  @include pxRem(max-width, 680);
+  @include pxRem(padding, 48);
+  @include border-radius(5);
+  margin: auto;
+
+  background-color: map-get($color, white-a);
+  .section-header {
+    text-align: center;
+    .login-title {
+      @include pxRem(font-size, 30);
+      font-weight: 500;
+    }
+    .login-link:hover {
+      color: map-get($color, primary);
+      text-decoration: underline;
+    }
+  }
+  .section-body {
+    .login-network {
+      .btn {
+        @include pxRem(padding, 8 0);
+        font-weight: 300;
+      }
+    }
+    .network-icon {
+      @include pxRem(width, 26);
+      @include pxRem(margin-right, 10);
+      height: auto;
+    }
+    .gmail {
+      color: map-get($color, black-a);
+      background-color: map-get($color, grey-g);
+    }
+    .github {
+      background-color: map-get($color, black-a);
+    }
+    .facebook {
+      background-color: map-get($color, blue-fb);
+    }
+    .login-hr {
+      @include pxRem(margin, 20 0 10 0);
+      .hr-txt {
+        @include pxRem(font-size, 14);
+      }
+    }
+    .login-field {
+      @include pxRem(margin-bottom, 14);
+      display: flex;
+      flex-direction: column;
+    }
+    .login-label {
+      @include pxRem(margin, 8 0);
+      font-weight: 500;
+    }
+    .login-submit {
+      width: 100%;
+    }
+    .forgot-password {
+      @include pxRem(margin, 22 0);
+      text-align: center;
+    }
+  }
+}

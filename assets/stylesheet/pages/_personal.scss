@@ -1,0 +1,38 @@
+.personal-page {
+  .page-header {
+    @include pxRem(padding, 10 0 14);
+  }
+}
+
+@media only screen and (max-width: map-get($breakpoints, medium)) {
+  .personal-page {
+    .personal-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .input-text {
+      @include pxRem(margin, 10 0);
+    }
+    .crayon-select {
+      @include pxRem(padding, 6 12);
+    }
+  }
+}
+
+@media only screen and (max-width: map-get($breakpoints, small)) {
+  .personal-page {
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .input-text {
+      @include pxRem(margin, 10 0);
+      width: 100%;
+    }
+    .crayon-select {
+      @include pxRem(padding, 6 12);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.auth-page {
+  background-color: map-get($color, grey-a);
+  @include pxRem(padding, 48 0);
+  .page-body {
+    min-height: 90vh;
+  }
+}

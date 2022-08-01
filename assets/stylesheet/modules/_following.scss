@@ -1,0 +1,19 @@
+.personal-page {
+  .page-title {
+    @include pxRem(font-size, map-get($font-size, xxl));
+  }
+  .user-following {
+    @include pxRem(padding, 16);
+    @include border-radius(4);
+    background-color: map-get($color, white-a);
+    border: 0.5px solid map-get($color, grey-h);
+    .img-link {
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+      border: 0.5px solid map-get($color, grey-h);
+    }
+  }
+}
