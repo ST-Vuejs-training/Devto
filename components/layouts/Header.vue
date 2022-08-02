@@ -3,22 +3,22 @@
     <div class="container">
       <div class="fl-space-between px-4">
         <h1 class="logo">
-          <RouterLink class="fl-center-y" to="/">
+          <nuxt-link class="fl-center-y" to="/">
             <img :src="media.LOGO" alt="Blog" class="logo-img" />
-          </RouterLink>
+          </nuxt-link>
         </h1>
         <header-auth v-if="store?.token" />
         <nav v-else class="nav-auth">
           <ul class="flex nav-list">
             <li class="nav-item">
-              <RouterLink class="btn btn-flat-primary" to="/auth/login">
+              <nuxt-link class="btn btn-flat-primary" to="/auth/login">
                 Login
-              </RouterLink>
+              </nuxt-link>
             </li>
             <li class="nav-item">
-              <RouterLink class="btn btn-primary" to="/auth/register">
+              <nuxt-link class="btn btn-primary" to="/auth/register">
                 Create an account
-              </RouterLink>
+              </nuxt-link>
             </li>
           </ul>
         </nav>

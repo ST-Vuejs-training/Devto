@@ -12,16 +12,16 @@
               <nav class="nav-tab sm-hide">
                 <ul class="flex nav-tab-list">
                   <li class="nav-tab-item mx-1 pd-2 selected">
-                    <RouterLink to="/">All</RouterLink>
+                    <nuxt-link to="/">All</nuxt-link>
                   </li>
                   <li class="nav-tab-item mx-1 pd-2">
-                    <RouterLink to="/">Frontend</RouterLink>
+                    <nuxt-link to="/">Frontend</nuxt-link>
                   </li>
                   <li class="nav-tab-item mx-1 pd-2">
-                    <RouterLink to="/">Backend</RouterLink>
+                    <nuxt-link to="/">Backend</nuxt-link>
                   </li>
                   <li class="nav-tab-item mx-1 pd-2">
-                    <RouterLink to="/">Database</RouterLink>
+                    <nuxt-link to="/">Database</nuxt-link>
                   </li>
                 </ul>
               </nav>
@@ -49,7 +49,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 
 export default {
