@@ -64,7 +64,6 @@
 
 <!-- <script>
 import ArticleBlock from '@/components/blocks/ArticleBlock';
-import CommentsBlock from '@/components/blocks/CommentsBlock';
 import AsideUsernameBlock from '@/components/blocks/AsideUsernameBlock';
 
 export default {
@@ -77,10 +76,11 @@ export default {
 </script> -->
 
 <script>
+import CommentsBlock from '@/components/CommentsBlock';
 // import InlineErrorBlock from '@/components/blocks/InlineErrorBlock';
 
 export default {
-  components: {},
+  components: { CommentsBlock },
   props: [],
   async fetch() {
     const article = await fetch(
