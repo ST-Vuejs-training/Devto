@@ -18,7 +18,7 @@ export default {
   css: ['~/assets/stylesheet/styles.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/vue-placeholders.ts'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

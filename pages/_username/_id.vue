@@ -1,134 +1,129 @@
 <template>
-  <div class="page-body">
-    <div class="container">
-      <div class="article-detail row flex-center-x flex-start-y">
-        <div class="col-1 col-sm-0 sticky">
-          <aside class="sidebar-left">
-            <div class="sidebar-left-content" v-if="article.id">
-              <ArticleLiked
-                :isLiked="article.isLiked"
-                :countLikes="article.likes"
-                :articleId="article.id"
-                v-if="article?.status !== 'draft'"
-              />
-              <ArticleDetailBookMark
-                :isInBookMark="article?.isInBookmark"
-                :articleId="article.id"
-                v-if="article?.status !== 'draft'"
-              />
-              <div class="pin option flex-col flex-center-y">
-                <img
-                  class="pin-icon"
-                  src="https://cdn0.iconfinder.com/data/icons/smoothies-vector-icons-volume-2/48/143-512.png"
-                  alt="option"
-                />
-              </div>
-            </div>
-          </aside>
-        </div>
-        <main class="col-11 col-sm-12">
-          <div class="row">
-            <div class="main col-9 col-md-12">
-              <div class="article-wrapper">
-                <article class="article-section">
-                  <div class="article-header">
-                    <h2 class="article-title">{{ article?.title }}</h2>
-                    <div class="article-meta flex-between-x flex-center-y">
-                      <div class="meta-author flex-start-x flex-center-y">
-                        <RouterLink
-                          class="article-author-link flex-center-x flex-center-y mr-2"
-                          :to="`/user/profile/${
-                            article?.user?.email === currentUser?.email
-                              ? ''
-                              : article?.userId
-                          }`"
-                        >
-                          <img
-                            class="author-img"
-                            :src="userInfo?.profile_image || AVATAR_DEFAUL"
-                            :alt="userInfo?.name"
-                          />
-                          <p class="article-author-name">
-                            {{ userInfo?.name }}
-                          </p>
-                        </RouterLink>
-                        <div class="flex-center-x flex-center-y">
-                          <time
-                            class="article-time"
-                            :dateTime="new Date().toISOString()"
-                            title="Hôm nay đó"
-                          >
-                            {{ article?.createdAt }}
-                          </time>
-                        </div>
-                      </div>
-                      <div
-                        class="meta-action"
-                        v-if="article?.user?.email === currentUser?.email"
-                      >
-                        <RouterLink to="update">
-                          <button class="btn btn-secondary mr-2">Edit</button>
-                        </RouterLink>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="article-body">
-                    <div class="article-description py-4">
-                      <h4 class="description">
-                        {{ article?.description }}
-                      </h4>
-                    </div>
-                    <div class="article-info">
+  <div class="article-detail page-wrapper">
+    <div class="article-content-wrapper">
+      <div class="article-block">
+        <template>
+          <article>
+            <template v-if="$fetchState.pending">
+              <content-placeholders rounded>
+                <content-placeholders-heading />
+                <content-placeholders-img />
+                <content-placeholders-text :lines="50" />
+              </content-placeholders>
+            </template>
+            <!-- <template v-else-if="$fetchState.error">
+              <inline-error-block :error="$fetchState.error" />
+            </template> -->
+            <template v-else>
+              <header>
+                <h1>{{ article.title }}</h1>
+                <div class="tags">
+                  <nuxt-link
+                    v-for="tag in article.tags"
+                    :key="tag"
+                    :to="{ name: 't-tag', params: { tag } }"
+                    class="tag"
+                  >
+                    #{{ tag }}
+                  </nuxt-link>
+                </div>
+                <div v-if="article.cover_image" class="image-wrapper">
+                  <img :src="article.cover_image" :alt="article.title" />
+                </div>
+                <div class="meta">
+                  <div class="scl">
+                    <span>
+                      <img src="../../assets/icons/heart.svg" alt="heart" />
+                      {{ article.positive_reactions_count }}
+                    </span>
+                    <span class="comments" @click="scrollToComments">
                       <img
-                        class="article-img"
-                        :src="article?.cover_image || COVER_DEFAULT"
-                        :alt="article?.title"
+                        src="../../assets/icons/comments.svg"
+                        alt="comments"
                       />
-                      <div
-                        class="article-content"
-                        v-html="article?.body_html"
-                      ></div>
-                    </div>
+                      {{ article.comments_count }}
+                    </span>
                   </div>
-                </article>
-                <Comments :postId="article?.id" />
-              </div>
-            </div>
-            <AuthorDetail :userId="article.userId" :articleId="article.id" />
-          </div>
-        </main>
+                  <time>{{ article.readable_publish_date }}</time>
+                </div>
+              </header>
+              <!-- eslint-disable-next-line -->
+              <div class="content" v-html="article.body_html" />
+            </template>
+          </article>
+        </template>
+      </div>
+
+      <div class="aside-username-wrapper">
+        <aside-username-block class="aside-username-block" />
       </div>
     </div>
+    <comments-block class="comments-block" />
   </div>
 </template>
 
-<script>
+<!-- <script>
+import ArticleBlock from '@/components/blocks/ArticleBlock';
+import CommentsBlock from '@/components/blocks/CommentsBlock';
+import AsideUsernameBlock from '@/components/blocks/AsideUsernameBlock';
+
 export default {
+  components: {
+    ArticleBlock,
+    CommentsBlock,
+    AsideUsernameBlock,
+  },
+};
+</script> -->
+
+<script>
+// import InlineErrorBlock from '@/components/blocks/InlineErrorBlock';
+
+export default {
+  components: {},
+  props: [],
   async fetch() {
     const article = await fetch(
       `https://dev.to/api/articles/${this.$route.params.id}`
     ).then((res) => res.json());
 
-    const userInfo = await fetch(
-      `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
-    ).then((res) => res.json());
+    console.log('ARTICLE ----- ', article);
 
-    console.log(article);
-    console.log(userInfo);
-    this.article = article;
-    this.userInfo = userInfo;
+    if (article.id && article.user.username === this.$route.params.username) {
+      this.article = article;
+      // this.$store.commit('SET_CURRENT_ARTICLE', this.article);
+    } else {
+      // set status code on server
+      if (process.server) {
+        this.$nuxt.context.res.statusCode = 404;
+      }
+      throw new Error('Article not found');
+    }
   },
-
   data() {
     return {
       article: {},
-      userInfo: {},
     };
   },
-  computed: {
-    logArticle: () => {
-      console.log(this.article);
+  activated() {
+    // Call fetch again if last fetch more than 60 sec ago
+    if (this.$fetchState.timestamp <= Date.now() - 60000) {
+      this.$fetch();
+    }
+  },
+  methods: {
+    scrollToComments() {
+      const el = document.querySelector('#comments');
+      if (el) {
+        const scrollTo = el.getBoundingClientRect().top;
+        window.scrollBy({ top: scrollTo - 20, left: 0, behavior: 'smooth' });
+      }
     },
+  },
+  head() {
+    return {
+      title: this.article.title,
+    };
   },
 };
 </script>
