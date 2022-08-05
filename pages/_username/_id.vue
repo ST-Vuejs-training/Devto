@@ -55,7 +55,7 @@
       </div>
 
       <div class="aside-username-wrapper">
-        <aside-username-block class="aside-username-block" />
+        <user-block class="aside-username-block" />
       </div>
     </div>
     <comments-block class="comments-block" />
@@ -77,10 +77,11 @@ export default {
 
 <script>
 import CommentsBlock from '@/components/CommentsBlock';
+import UserBlock from '@/components/UserBlock';
 // import InlineErrorBlock from '@/components/blocks/InlineErrorBlock';
 
 export default {
-  components: { CommentsBlock },
+  components: { CommentsBlock, UserBlock },
   props: [],
   async fetch() {
     const article = await fetch(

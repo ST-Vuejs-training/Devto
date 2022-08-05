@@ -40,7 +40,7 @@
             <div class="btn btn-flat-primary">
               <nuxt-link :to="`/articles/${article?.id}`">
                 <div class="flex-center-y">
-                  <i class="far fa-heart mr-2" />
+                  <img src="../assets/icons/heart.svg" alt="heart" />
                   <span class="sm-hide">
                     {{
                       `${article?.positive_reactions_count} ${
@@ -57,7 +57,7 @@
             <div class="btn btn-flat-primary">
               <nuxt-link :to="`/articles/${article?.id}`">
                 <div class="flex-center-y">
-                  <i class="far fa-comments mr-2" />
+                  <img src="../assets/icons/comments.svg" alt="comments" />
                   <span class="sm-hide">
                     {{
                       `${article?.comments_count} ${
