@@ -12,9 +12,9 @@
         </content-placeholders>
       </div>
     </template>
-    <!-- <template v-else-if="$fetchState.error">
+    <template v-else-if="$fetchState.error">
       <inline-error-block :error="$fetchState.error" />
-    </template> -->
+    </template>
     <template v-else>
       <nuxt-link
         class="username-heading"
@@ -79,11 +79,11 @@
 </template>
 
 <script>
-// import InlineErrorBlock from '@/components/blocks/InlineErrorBlock';
+import InlineErrorBlock from '@/components/ErrorBlock';
 
 export default {
   components: {
-    // InlineErrorBlock,
+    InlineErrorBlock,
   },
   props: [],
   async fetch() {

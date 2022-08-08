@@ -11,9 +11,9 @@
                 <content-placeholders-text :lines="50" />
               </content-placeholders>
             </template>
-            <!-- <template v-else-if="$fetchState.error">
+            <template v-else-if="$fetchState.error">
               <inline-error-block :error="$fetchState.error" />
-            </template> -->
+            </template>
             <template v-else>
               <header>
                 <h1>{{ article.title }}</h1>
@@ -58,7 +58,7 @@
         <user-block class="aside-username-block" />
       </div>
     </div>
-    <comments-block class="comments-block" />
+    <comments-block v-if="article.title" class="comments-block" />
   </div>
 </template>
 
@@ -78,10 +78,14 @@ export default {
 <script>
 import CommentsBlock from '@/components/CommentsBlock';
 import UserBlock from '@/components/UserBlock';
-// import InlineErrorBlock from '@/components/blocks/InlineErrorBlock';
+import InlineErrorBlock from '@/components/ErrorBlock';
 
 export default {
-  components: { CommentsBlock, UserBlock },
+  components: {
+    CommentsBlock,
+    UserBlock,
+    InlineErrorBlock,
+  },
   props: [],
   async fetch() {
     const article = await fetch(
