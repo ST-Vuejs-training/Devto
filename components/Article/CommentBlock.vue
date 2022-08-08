@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import CommentBlock from '@/components/CommentBlock';
+import CommentBlock from '@/components/Article/CommentBlock';
 import TwitterIcon from '~/assets/icons/twitter.svg?inline';
 import GithubIcon from '~/assets/icons/github.svg?inline';
 import ExternalLinkIcon from '~/assets/icons/external-link.svg?inline';

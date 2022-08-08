@@ -36,11 +36,11 @@
       <div class="meta">
         <div class="scl">
           <span>
-            <img src="../assets/icons/heart.svg" alt="heart" />
+            <img src="../../assets/icons/heart.svg" alt="heart" />
             {{ article.positive_reactions_count }}
           </span>
           <span>
-            <img src="../assets/icons/comments.svg" alt="comments" />
+            <img src="../../assets/icons/comments.svg" alt="comments" />
             {{ article.comments_count }}
           </span>
         </div>

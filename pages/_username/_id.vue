@@ -76,8 +76,8 @@ export default {
 </script> -->
 
 <script>
-import CommentsBlock from '@/components/CommentsBlock';
-import UserBlock from '@/components/UserBlock';
+import CommentsBlock from '@/components/Article/CommentsBlock';
+import UserBlock from '@/components/User/UserBlock';
 import InlineErrorBlock from '@/components/ErrorBlock';
 
 export default {

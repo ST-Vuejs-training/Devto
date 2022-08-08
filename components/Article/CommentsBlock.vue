@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import CommentBlock from '@/components/CommentBlock';
+import CommentBlock from '@/components/Article/CommentBlock';
 
 export default {
   components: {

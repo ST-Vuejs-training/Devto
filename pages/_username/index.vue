@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import UsernameBlock from '@/components/UserInfoBlock';
-import UsernameArticlesBlock from '@/components/UserArticles';
+import UsernameBlock from '@/components/User/UserInfoBlock';
+import UsernameArticlesBlock from '@/components/User/UserArticles';
 
 export default {
   components: {

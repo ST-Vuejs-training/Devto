@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import ArticleCardBlock from '@/components/ArticleCardBlock';
+import ArticleCardBlock from '@/components/Article/ArticleCardBlock';
 import InlineErrorBlock from '@/components/ErrorBlock';
 
 export default {
