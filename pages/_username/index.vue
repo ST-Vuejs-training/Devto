@@ -1,3 +1,26 @@
 <template>
-  <h1>Hello</h1>
+  <div class="personal-info page-wrapper">
+    <username-block />
+    <username-articles-block />
+  </div>
 </template>
+
+<script>
+import UsernameBlock from '@/components/UserInfoBlock';
+import UsernameArticlesBlock from '@/components/UserArticles';
+
+export default {
+  components: {
+    UsernameBlock,
+    UsernameArticlesBlock,
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.page-wrapper {
+  max-width: 1280px;
+  margin: auto;
+  padding: 1rem;
+}
+</style>

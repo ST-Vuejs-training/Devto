@@ -59,4 +59,7 @@
     @include pxRem(right, 16);
     position: absolute;
   }
+  img {
+    width: auto;
+  }
 }
