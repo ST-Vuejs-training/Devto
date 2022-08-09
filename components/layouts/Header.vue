@@ -7,8 +7,8 @@
             <img :src="media.LOGO" alt="Blog" class="logo-img" />
           </nuxt-link>
         </h1>
-        <header-auth v-if="store?.token" />
-        <nav v-else class="nav-auth">
+        <!-- <header-auth v-if="store?.token" /> -->
+        <nav class="nav-auth">
           <ul class="flex nav-list">
             <li class="nav-item">
               <nuxt-link class="btn btn-flat-primary" to="/auth/login">
