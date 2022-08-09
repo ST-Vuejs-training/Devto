@@ -1,11 +1,5 @@
 <template>
-  <nuxt-link
-    :to="{
-      name: 'username-article',
-      params: { username: article.user.username, article: article.id },
-    }"
-    tag="article"
-  >
+  <nuxt-link :to="`/${article.user.username}/${article.id}`" , tag="article">
     <div class="image-wrapper">
       <img
         v-if="article.cover_image"
@@ -15,19 +9,14 @@
       <img v-else :src="article.social_image" :alt="article.title" />
     </div>
     <div class="content">
-      <nuxt-link
-        :to="{
-          name: 'username-article',
-          params: { username: article.user.username, article: article.id },
-        }"
-      >
+      <nuxt-link :to="`/${article.user.username}/${article.id}`">
         <h1>{{ article.title }}</h1>
       </nuxt-link>
       <div class="tags">
         <nuxt-link
           v-for="tag in article.tag_list"
           :key="tag"
-          :to="{ name: 't-tag', params: { tag } }"
+          :to="`/t/${tag}`"
           class="tag"
         >
           #{{ tag }}
@@ -63,6 +52,11 @@ export default {
     article: {
       type: Object,
       default: null,
+    },
+  },
+  computed: {
+    logname() {
+      console.log('-----', this.article);
     },
   },
 };

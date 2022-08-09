@@ -2,7 +2,7 @@
   <li class="article-item mb-3">
     <div class="article pd-4">
       <div class="article-header flex mb-2">
-        <nuxt-link :to="`/user/${article?.user.username}`">
+        <nuxt-link :to="`/${article?.user.username}`">
           <div class="article-meta flex">
             <div class="article-author-img mr-2">
               <img

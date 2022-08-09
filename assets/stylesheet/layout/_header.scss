@@ -10,7 +10,7 @@ header.page-header {
   .nav-item {
     @include pxRem(margin-left, 16);
     a {
-      font-weight: 300
+      font-weight: 300;
     }
   }
   .user {
