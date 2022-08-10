@@ -17,14 +17,14 @@
           :href="`https://twitter.com/${comment.user.twitter_username}`"
           target="_blank"
         >
-          <twitter-icon />
+          <img src="../../assets/icons/twitter.svg" alt="twitter" />
         </a>
         <a
           v-if="comment.user.github_username"
           :href="`https://github.com/${comment.user.github_username}`"
           target="_blank"
         >
-          <github-icon />
+          <img src="../../assets/icons/github.svg" alt="github" />
         </a>
         <a
           v-if="comment.user.website_url"
@@ -32,7 +32,7 @@
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <external-link-icon />
+          <img src="../../assets/icons/external-link.svg" alt="twitter" />
         </a>
       </div>
       <!-- eslint-disable-next-line -->
@@ -51,17 +51,11 @@
 
 <script>
 import CommentBlock from '@/components/Article/CommentBlock';
-import TwitterIcon from '~/assets/icons/twitter.svg?inline';
-import GithubIcon from '~/assets/icons/github.svg?inline';
-import ExternalLinkIcon from '~/assets/icons/external-link.svg?inline';
 
 export default {
   name: 'CommentBlock',
   components: {
     CommentBlock,
-    TwitterIcon,
-    GithubIcon,
-    ExternalLinkIcon,
   },
   props: {
     comment: {

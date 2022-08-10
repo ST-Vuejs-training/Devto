@@ -45,7 +45,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import ArticleCardBlock from '@/components/Article/ArticleCardBlock';
 import InlineErrorBlock from '@/components/ErrorBlock';
 

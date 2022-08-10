@@ -39,10 +39,11 @@ export default {
     };
   },
   computed: {
-    // addCommentLink() {
-    //   const { slug } = this.$store.state.currentArticle || {};
-    //   return `https://dev.to/${this.$route.params.username}/${slug}`;
-    // },
+    addCommentLink() {
+      // const { slug } = this.$store.state.currentArticle || {};
+      // return `https://dev.to/${this.$route.params.username}/${slug}`;
+      return `https://dev.to/${this.$route.params.username}`;
+    },
   },
 };
 </script>
