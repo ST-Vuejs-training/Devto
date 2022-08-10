@@ -50,9 +50,13 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from "vue";
+import SideBarRight from "@/components/Home/SideBarRight";
 
 export default {
+  components: {
+    SideBarRight,
+  },
   async fetch() {
     const articles = await fetch(
       `https://dev.to/api/articles?state=rising&page=${this.currentPage}`
