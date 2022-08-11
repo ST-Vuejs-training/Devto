@@ -38,13 +38,13 @@
         <div class="article-action fl-space-between">
           <div class="article-action-left flex-center-y">
             <div class="btn btn-flat-primary">
-              <nuxt-link :to="`/articles/${article?.id}`">
+              <nuxt-link :to="`/${article?.user.username}/${article?.id}`">
                 <div class="flex-center-y">
                   <img src="../../assets/icons/heart.svg" alt="heart" />
                   <span class="sm-hide">
                     {{
                       `${article?.positive_reactions_count} ${
-                        article?.positive_reactions_count > 1 ? 'likes' : 'like'
+                        article?.positive_reactions_count > 1 ? "likes" : "like"
                       }`
                     }}
                   </span>
@@ -55,13 +55,13 @@
               </nuxt-link>
             </div>
             <div class="btn btn-flat-primary">
-              <nuxt-link :to="`/articles/${article?.id}`">
+              <nuxt-link :to="`/${article?.user.username}/${article?.id}`">
                 <div class="flex-center-y">
                   <img src="../../assets/icons/comments.svg" alt="comments" />
                   <span class="sm-hide">
                     {{
                       `${article?.comments_count} ${
-                        article?.comments_count > 1 ? 'comments' : 'comment'
+                        article?.comments_count > 1 ? "comments" : "comment"
                       }`
                     }}
                   </span>
