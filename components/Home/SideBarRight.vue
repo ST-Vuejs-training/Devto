@@ -5,7 +5,19 @@
         <div class="crayons-header">
           <h3 class="crayons-title">#recommends</h3>
           <ul class="crayons-list">
-            <!-- {!loading ? recommend?.map((rec) => <Recommend key={rec.id} postRecommend={rec} />) : <></>} -->
+            <template v-for="(article, index) in articles">
+              <li class="crayons-item" :key="index">
+                <nuxt-link
+                  :to="`/${article.user.name}/${article.id}`"
+                  class="crayons-link mb-1"
+                >
+                  {{ article.title }}
+                </nuxt-link>
+                <div>
+                  <span class="crayons-comment">{{ article.user.name }}</span>
+                </div>
+              </li>
+            </template>
           </ul>
         </div>
       </div>
@@ -53,4 +65,22 @@
     </aside>
   </div>
 </template>
-<script></script>
+<script>
+export default {
+  async fetch() {
+    const articles = await fetch(
+      `https://dev.to/api/articles?tag=nuxt&state=rising&per_page=10`
+    ).then((res) => res.json());
+
+    this.articles = this.articles.concat(articles);
+    console.log(this.articles);
+  },
+
+  data() {
+    return {
+      currentPage: 1,
+      articles: [],
+    };
+  },
+};
+</script>
