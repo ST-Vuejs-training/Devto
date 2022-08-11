@@ -2,7 +2,7 @@
   <div class="page-body">
     <section class="login-section">
       <div class="section-header">
-        <h1 class="login-title">Welcome to Final Project</h1>
+        <h1 class="login-title">Welcome to Nuxtjs PJ - DEV TO</h1>
         <h1 class="register-description">
           Do not have an account?
           <Link class="login-link" to="/auth/register"> Register </Link>
