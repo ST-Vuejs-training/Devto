@@ -52,10 +52,12 @@
 <script>
 import Vue from "vue";
 import SideBarRight from "@/components/Home/SideBarRight";
+import SideBar from "@/components/Home/SideBar";
 
 export default {
   components: {
     SideBarRight,
+    SideBar,
   },
   async fetch() {
     const articles = await fetch(
