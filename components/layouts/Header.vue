@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { media } from '@/shared/constants/assetsUrl';
+import { media } from "@/shared/constants/assetsUrl";
 // import HeaderAuth from '@/components/';
 export default {
   data() {
