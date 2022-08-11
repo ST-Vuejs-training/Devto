@@ -88,7 +88,7 @@
 @mixin clearfix() {
   &::after {
     display: block;
-    content: '';
+    content: "";
     clear: both;
   }
 }
@@ -150,7 +150,7 @@
 }
 
 @mixin create-media-query($break-point) {
-  @if ($break-point == '') {
+  @if ($break-point == "") {
     @content;
   } @else {
     @media only screen and (max-width: $break-point) {
@@ -162,20 +162,22 @@
 @mixin create-col-classes($size, $column, $break-point, $gutter-x, $gutter-y) {
   @include create-media-query($break-point) {
     @for $i from 0 through $column {
-      @if ($break-point == '') {
+      @if ($break-point == "") {
         .col-#{$i} {
-          width: percentage($i / $column);
+          width: percentage(calc($i / $column));
           @include pxRem(
             padding,
-            map-get($gutter-y, $size / 2) map-get($gutter-x, $size) / 2
+            map-get($gutter-y, calc($size / 2))
+              map-get($gutter-x, calc($size / 2))
           );
         }
       } @else {
         .col-#{$size}-#{$i} {
-          width: percentage($i / $column);
+          width: percentage(calc($i / $column));
           @include pxRem(
             padding,
-            map-get($gutter-y, $size) / 2 map-get($gutter-x, $size) / 2
+            map-get($gutter-y, calc($size / 2))
+              map-get($gutter-x, calc($size / 2))
           );
         }
       }
@@ -197,7 +199,7 @@
 
 // === CONVERT PXREM ===
 @function strip-units($number) {
-  @return $number / ($number * 0 + 1);
+  @return calc($number / (1));
 }
 
 @function convertRootPxToEm($value) {
@@ -214,7 +216,7 @@
 }
 
 @function convertPxToRem($px) {
-  @return 0rem + strip-units($px) / 16;
+  @return strip-units(calc($px / 16)) + "rem";
 }
 
 @mixin pxRem($property, $values) {
@@ -223,7 +225,7 @@
   $rem-values: ();
 
   // Ensure $values is a list.
-  @if type-of($values) != 'list' {
+  @if type-of($values) != "list" {
     $values: join((), $values);
   }
 

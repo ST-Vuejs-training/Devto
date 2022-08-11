@@ -45,9 +45,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import ArticleCardBlock from '@/components/Article/ArticleCardBlock';
-import InlineErrorBlock from '@/components/ErrorBlock';
+<script>
+import ArticleCardBlock from "@/components/Article/ArticleCardBlock";
+import InlineErrorBlock from "@/components/ErrorBlock";
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -63,7 +63,7 @@ export default {
       `https://dev.to/api/articles?tag=${this.$route.params.tag}&top=365&page=${this.currentPage}`
     ).then((res) => res.json());
 
-    console.log('ARRR ', articles);
+    console.log("ARRR ", articles);
 
     if (!articles.length && this.currentPage === 1) {
       // set status code on server
