@@ -5,7 +5,9 @@
         <h1 class="login-title">Welcome to Nuxtjs PJ - DEV TO</h1>
         <h1 class="register-description">
           Do not have an account?
-          <Link class="login-link" to="/auth/register"> Register </Link>
+          <nuxt-link class="login-link" to="/auth/register">
+            Register
+          </nuxt-link>
         </h1>
       </div>
       <div class="section-body">
@@ -60,7 +62,12 @@
           </div>
         </form>
         <div class="forgot-password">
-          <a class="forgot-password-link" href="#"> Forgot password </a>
+          <a
+            class="forgot-password-link"
+            href="https://dev.to/settings/extensions"
+          >
+            How to get API KEY ?
+          </a>
         </div>
       </div>
     </section>
@@ -76,13 +83,15 @@ export default {
     checkForm: async function (e) {
       e.preventDefault();
       if (this.apikey) {
-        console.log(this.apikey);
-        const articles = await fetch("https://dev.to/api/users/me", {
+        const userInfo = await fetch("https://dev.to/api/users/me", {
           headers: {
             "api-key": this.apikey,
           },
         }).then((res) => res.json());
-        console.log(articles);
+        if (userInfo.id) {
+          localStorage.setItem("user", JSON.stringify(userInfo));
+          this.$router.push("/");
+        }
         return true;
       }
 
