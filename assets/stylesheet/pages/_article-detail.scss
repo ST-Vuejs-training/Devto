@@ -34,6 +34,7 @@ article {
       flex-wrap: wrap;
       margin-bottom: 0.5rem;
       .tag {
+        width: fit-content;
         font-size: $text-sm;
         font-weight: $bold-body-font-weight;
         line-height: 1;
@@ -293,7 +294,7 @@ article {
       }
     }
     img {
-      width: 100%;
+      // width: 100%;
       border-radius: 0.5rem;
       height: auto;
     }

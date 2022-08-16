@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/${article.user.username}/${article.id}`" , tag="article">
+  <nuxt-link :to="`/${article.user.username}/${article.id}`" tag="article">
     <div class="image-wrapper">
       <img
         v-if="article.cover_image"
