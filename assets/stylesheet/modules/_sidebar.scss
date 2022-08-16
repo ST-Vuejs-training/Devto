@@ -1,5 +1,6 @@
 .sidebar {
   @include pxRem(padding-top, 40);
+  @include pxRem(margin-left, -30);
   .nav-item {
     @include border-radius(4);
     &.selected {
@@ -15,6 +16,33 @@
     font-weight: map-get($font-weight, sight);
     &:hover {
       color: map-get($color, primary);
+    }
+  }
+  .sidebar-navigation-links {
+    padding-left: 8px;
+    li {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      &:hover {
+        background: #e2e3f3;
+      }
+    }
+  }
+  .sidebar-navigation-link {
+    display: flex;
+    align-items: center;
+    &:hover {
+      text-decoration: underline;
+    }
+    span {
+      margin-right: 8px;
+      display: flex;
+      padding-bottom: 2px;
+      svg {
+        height: 24px;
+        width: 24px;
+      }
     }
   }
 }
