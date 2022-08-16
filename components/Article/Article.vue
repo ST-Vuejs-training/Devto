@@ -40,7 +40,7 @@
             <div class="btn btn-flat-primary">
               <nuxt-link :to="`/${article?.user.username}/${article?.id}`">
                 <div class="flex-center-y">
-                  <img src="../../assets/icons/heart.svg" alt="heart" />
+                  <img src="../../assets/icons/heart2.svg" alt="heart" />
                   <span class="sm-hide">
                     {{
                       `${article?.positive_reactions_count} ${

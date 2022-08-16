@@ -33,7 +33,7 @@
                 <div class="meta">
                   <div class="scl">
                     <span>
-                      <img src="../../assets/icons/heart.svg" alt="heart" />
+                      <img src="../../assets/icons/heart2.svg" alt="heart" />
                       {{ article.positive_reactions_count }}
                     </span>
                     <span class="comments" @click="scrollToComments">
@@ -76,9 +76,9 @@ export default {
 </script> -->
 
 <script>
-import CommentsBlock from '@/components/Article/CommentsBlock';
-import UserBlock from '@/components/User/UserBlock';
-import InlineErrorBlock from '@/components/ErrorBlock';
+import CommentsBlock from "@/components/Article/CommentsBlock";
+import UserBlock from "@/components/User/UserBlock";
+import InlineErrorBlock from "@/components/ErrorBlock";
 
 export default {
   components: {
@@ -92,7 +92,7 @@ export default {
       `https://dev.to/api/articles/${this.$route.params.id}`
     ).then((res) => res.json());
 
-    console.log('ARTICLE ----- ', article);
+    console.log("ARTICLE ----- ", article);
 
     if (article.id && article.user.username === this.$route.params.username) {
       this.article = article;
@@ -102,7 +102,7 @@ export default {
       if (process.server) {
         this.$nuxt.context.res.statusCode = 404;
       }
-      throw new Error('Article not found');
+      throw new Error("Article not found");
     }
   },
   data() {
@@ -118,10 +118,10 @@ export default {
   },
   methods: {
     scrollToComments() {
-      const el = document.querySelector('#comments');
+      const el = document.querySelector("#comments");
       if (el) {
         const scrollTo = el.getBoundingClientRect().top;
-        window.scrollBy({ top: scrollTo - 20, left: 0, behavior: 'smooth' });
+        window.scrollBy({ top: scrollTo - 20, left: 0, behavior: "smooth" });
       }
     },
   },

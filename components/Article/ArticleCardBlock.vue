@@ -25,7 +25,7 @@
       <div class="meta">
         <div class="scl">
           <span>
-            <img src="../../assets/icons/heart.svg" alt="heart" />
+            <img src="../../assets/icons/heart2.svg" alt="heart" />
             {{ article.positive_reactions_count }}
           </span>
           <span>
@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import HeartIcon from '@/assets/icons/heart.svg?inline';
-import CommentsIcon from '@/assets/icons/comments.svg?inline';
+import HeartIcon from "@/assets/icons/heart2.svg?inline";
+import CommentsIcon from "@/assets/icons/comments.svg?inline";
 
 export default {
   components: {
@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     logname() {
-      console.log('-----', this.article);
+      console.log("-----", this.article);
     },
   },
 };
