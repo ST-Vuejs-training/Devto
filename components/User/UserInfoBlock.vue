@@ -88,7 +88,12 @@ export default {
   props: [],
   async fetch() {
     const res = await fetch(
-      `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
+      'https://dev.to/api/users/me',
+      {
+        headers: {
+          'api-key': 'ryyh5CL3TkCdVtp3Ya54Nruv',
+        },
+      }
     );
 
     if (!res.ok) {

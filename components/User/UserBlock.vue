@@ -88,13 +88,22 @@ export default {
   props: [],
   async fetch() {
     const res = await fetch(
-      `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
+      'https://dev.to/api/users/me',
+      {
+        headers: {
+          'api-key': 'ryyh5CL3TkCdVtp3Ya54Nruv',
+        },
+      }
     );
-
     if (!res.ok) {
-      throw new Error(`User ${this.$route.params.username} not found`);
+      // set status code on server
+      if (process.server) {
+        this.$nuxt.context.res.statusCode = 404;
+      }
+      throw new Error('User not found');
     }
     this.user = await res.json();
+    this.$store.commit('setUserInfo', this.user);
   },
   fetchOnServer: false,
   data() {
