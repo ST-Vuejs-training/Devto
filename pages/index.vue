@@ -11,17 +11,19 @@
               <h2 class="section-title">Articles</h2>
               <nav class="nav-tab sm-hide">
                 <ul class="flex nav-tab-list">
-                  <li class="nav-tab-item mx-1 pd-2 selected">
-                    <nuxt-link to="/">All</nuxt-link>
-                  </li>
-                  <li class="nav-tab-item mx-1 pd-2">
-                    <nuxt-link to="/">Frontend</nuxt-link>
-                  </li>
-                  <li class="nav-tab-item mx-1 pd-2">
-                    <nuxt-link to="/">Backend</nuxt-link>
-                  </li>
-                  <li class="nav-tab-item mx-1 pd-2">
-                    <nuxt-link to="/">Database</nuxt-link>
+                  <li 
+                    v-for="(filter, index) in filterArr"
+                    :key="index"
+                    class="nav-tab-item mx-1"
+                    :class="{selected: filter === filterSelected}"
+                    @click="changeFilter(filter)"
+                  >
+                    <nuxt-link
+                      :to="`?tag=${filter}`"
+                      class="pd-2 txt-capitalize"
+                    >
+                      {{ filter }}
+                    </nuxt-link>
                   </li>
                 </ul>
               </nav>
@@ -60,19 +62,42 @@ export default {
     SideBar,
   },
   async fetch() {
-    const articles = await fetch(
-      `https://dev.to/api/articles?state=rising&page=${this.currentPage}`
-    ).then((res) => res.json());
-
-    this.articles = this.articles.concat(articles);
-    console.log(this.articles);
+    let tag = this.$route.query.tag;
+    if (!this.filterArr.includes(tag)) {
+      tag = 'all';
+    }
+    this.filterSelected = tag;
+    await this.fetchArticle(tag);
   },
-
+  mounted() {
+    if (!this.filterArr.slice(1).includes(this.$route.query.tag)) {
+      this.$router.replace({'query': null});
+    }
+  },
+  watchQuery(newQuery) {
+    if (newQuery.tag === 'all') {
+      this.$router.replace({'query': null});
+    }
+  },
   data() {
     return {
       currentPage: 1,
       articles: [],
+      filterSelected: 'all',
+      filterArr: ['all', 'frontend', 'backend', 'database']
     };
   },
+  methods: {
+    changeFilter(filter) {
+      this.filterSelected = filter;
+      this.fetchArticle(filter);
+    },
+    async fetchArticle(filter) {
+      this.articles = await fetch(
+        `https://dev.to/api/articles?tag=${filter === 'all' ? '' : filter}`
+      )
+      .then((res) => res.json());
+    }
+  }
 };
 </script>
