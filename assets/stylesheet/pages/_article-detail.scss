@@ -1,10 +1,10 @@
 article {
-  border-radius: 1rem;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: $shadow;
+  box-shadow: $small-shadow;
   cursor: pointer;
   &:hover {
-    box-shadow: $small-shadow;
+    box-shadow: $shadow;
     h1 {
       color: $primary-color;
     }
@@ -24,7 +24,11 @@ article {
   }
   .content {
     padding: 1rem;
+    a {
+      width: 100%;
+    }
     h1 {
+      @include ellipsis-special();
       font-size: $text-xl;
       letter-spacing: $-ls2;
       margin-bottom: 1rem;
