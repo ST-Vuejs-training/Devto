@@ -1,5 +1,5 @@
 .crayons {
-  @include border-radius(4);
+  @include pxRem(border-radius, 4);
   background-color: map-get($color, white-a);
   border: 1px solid map-get($color, grey-h);
   h3,

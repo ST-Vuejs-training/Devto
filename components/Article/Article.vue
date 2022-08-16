@@ -72,12 +72,12 @@
               </nuxt-link>
             </div>
           </div>
-          <div class="article-action-right">
+          <!-- <div class="article-action-right">
             <ButtonSave
               onClick="{handleToggleBookmark}"
               status="{isInBookmark}"
             />
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
