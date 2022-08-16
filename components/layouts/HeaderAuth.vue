@@ -9,7 +9,7 @@
       <li class="nav-item ml-4">
         <div class="user">
           <div class="user-img-wrapper">
-            <nuxt-link to="/user/profile" class="user-link pd-1">
+            <nuxt-link :to="`/${currentUser.username}`" class="user-link pd-1">
               <img
                 :src="currentUser.profile_image"
                 :alt="currentUser.username"
@@ -20,7 +20,10 @@
           <div class="dropdown">
             <ul class="dropdown-list">
               <li class="dropdown-item">
-                <nuxt-link to="/user/profile" class="dropdown-item-link">
+                <nuxt-link
+                  :to="`/${currentUser.username}`"
+                  class="dropdown-item-link"
+                >
                   {{ currentUser.username }}
                 </nuxt-link>
               </li>
@@ -48,7 +51,7 @@
                 </nuxt-link>
               </li>
               <li class="dropdown-item fl-center-x">
-                <button class="btn btn-flat-primary" onClick="{handleLogout}">
+                <button class="btn btn-flat-primary" @click="handleLogout">
                   Sign Out
                 </button>
               </li>
@@ -69,5 +72,11 @@ export default {
   //     };
   //   },
   props: ["currentUser"],
+  methods: {
+    handleLogout() {
+      localStorage.removeItem("user");
+      this.$emit("logout");
+    },
+  },
 };
 </script>

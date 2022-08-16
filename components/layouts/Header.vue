@@ -7,7 +7,11 @@
             <img :src="media.LOGO" alt="Blog" class="logo-img" />
           </nuxt-link>
         </h1>
-        <header-auth v-if="currentUser.id" :currentUser="currentUser" />
+        <header-auth
+          v-if="currentUser.id"
+          :currentUser="currentUser"
+          @logout="logout"
+        />
         <nav v-else class="nav-auth">
           <ul class="flex nav-list">
             <li class="nav-item">
@@ -37,12 +41,17 @@ export default {
   components: {
     HeaderAuth,
   },
+  methods: {
+    logout() {
+      this.currentUser = "";
+    },
+  },
   mounted() {
     const userInfo = localStorage.getItem("user") || "";
+    console.log("--------", userInfo);
     if (userInfo) {
       this.currentUser = JSON.parse(userInfo);
     }
   },
-  watch() {},
 };
 </script>
