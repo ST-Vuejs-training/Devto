@@ -90,7 +90,7 @@ export default {
     const res = await fetch(
       `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
     );
-
+    
     if (!res.ok) {
       // set status code on server
       if (process.server) {
