@@ -87,29 +87,20 @@ export default {
   },
   props: [],
   async fetch() {
-    const res = await fetch(
-      'https://dev.to/api/users/me',
-      {
-        headers: {
-          'api-key': 'ryyh5CL3TkCdVtp3Ya54Nruv',
-        },
-      }
-    );
-    if (!res.ok) {
+    this.user = this.$store.state.userInfo.userInfo;
+    if (!this.user) {
       // set status code on server
       if (process.server) {
         this.$nuxt.context.res.statusCode = 404;
       }
       throw new Error('User not found');
     }
-    this.user = await res.json();
-    this.$store.commit('setUserInfo', this.user);
   },
   fetchOnServer: false,
   data() {
     return {
-      user: {},
+      user: null,
     };
-  },
+  }
 };
 </script>

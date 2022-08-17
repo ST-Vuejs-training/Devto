@@ -11,9 +11,9 @@
         <nav class="nav-auth">
           <ul class="flex nav-list">
             <li class="nav-item">
-              <nuxt-link class="btn btn-flat-primary" to="/auth/login">
+              <button class="btn btn-flat-primary" @click="login">
                 Login
-              </nuxt-link>
+              </button>
             </li>
             <li class="nav-item">
               <nuxt-link class="btn btn-primary" to="/auth/register">
@@ -37,5 +37,11 @@ export default {
   //   components: {
   //     HeaderAuth,
   //   },
+  methods: {
+    async login() {
+      await this.$store.dispatch('getUserInfo');
+      this.$router.push('/auth/login');
+    }
+  }
 };
 </script>

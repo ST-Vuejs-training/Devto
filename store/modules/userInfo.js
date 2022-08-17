@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const state = {
   userInfo: null
 };
@@ -10,7 +12,21 @@ const mutations = {
   },
 };
 
-const actions = {};
+const actions = {
+  getUserInfo ({commit, error}) {
+    return axios.get('https://dev.to/api/users/me',
+    {
+      headers: {
+        'api-key': 'ryyh5CL3TkCdVtp3Ya54Nruv',
+      },
+    }).then(res => {
+      commit('setUserInfo', res.data);
+    })
+    .catch(e => {
+      error(e)
+    })
+  }
+};
 
 export default {
   state,
