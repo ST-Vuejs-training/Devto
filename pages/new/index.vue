@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -72,17 +74,33 @@ export default {
       e.container.querySelector(".ql-editor").innerHTML = this.article.content;
     },
     async handleCreateArticle() {
-      console.group("handleCreateArticle");
       try {
+        const apiKey = localStorage.getItem("api-key");
         const body = this.article;
         body.content = document.querySelector(".ql-editor").innerHTML;
-        // const res = await API_URL("POST", ENDPOINT.posts.index, body);
-        // localStorage.removeItem("draftArticle");
-        // router.push({ name: "home" });
+        const bodyPost = {
+          article: {
+            title: body.title,
+            body_markdown: body.content,
+            published: true,
+          },
+        };
+        if (!this.addImg) {
+          bodyPost.article = {
+            ...bodyPost.article,
+            main_image: this.COVER_DEFAULT,
+          };
+        }
+        const res = await axios.post("https://dev.to/api/articles", bodyPost, {
+          headers: {
+            "Content-Type": "application/json",
+            "api-key": JSON.parse(apiKey),
+          },
+        });
+        this.$router.push(`${res.data.user.username}/${res.data.id}`);
       } catch (error) {
         throw error;
       }
-      console.groupEnd();
     },
     toggleAddImg() {
       this.addImg = !this.addImg;
