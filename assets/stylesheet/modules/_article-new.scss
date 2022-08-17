@@ -50,6 +50,18 @@
       @include pxRem(padding, 8 10);
       @include pxRem(min-height, 400);
     }
+    .article-status-img {
+      label {
+        width: 30%;
+      }
+      justify-content: space-between;
+      img {
+        width: 70%;
+      }
+    }
+  }
+  .ql-container {
+    height: 250px;
   }
 }
 

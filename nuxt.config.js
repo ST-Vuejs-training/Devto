@@ -22,6 +22,7 @@ export default {
     "~/plugins/modals/v-modals.js",
     "~/plugins/vue-placeholders.ts",
     "~/plugins/vue-observe-visibility.client.ts",
+    { src: "~plugins/quilljs.ts", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
