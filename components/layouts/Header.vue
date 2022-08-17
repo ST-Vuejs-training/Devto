@@ -15,9 +15,9 @@
         <nav v-else class="nav-auth">
           <ul class="flex nav-list">
             <li class="nav-item">
-              <button class="btn btn-flat-primary" @click="login">
+              <nuxt-link class="btn btn-flat-primary" to="/auth/login">
                 Login
-              </button>
+              </nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link class="btn btn-primary" to="/auth/register">
@@ -51,12 +51,6 @@ export default {
     console.log("--------", userInfo);
     if (userInfo) {
       this.currentUser = JSON.parse(userInfo);
-    }
-  },
-  methods: {
-    async login() {
-      await this.$store.dispatch('getUserInfo');
-      this.$router.push('/auth/login');
     }
   }
 };

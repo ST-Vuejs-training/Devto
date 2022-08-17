@@ -13,17 +13,17 @@ const mutations = {
 };
 
 const actions = {
-  getUserInfo ({commit, error}) {
+  getUserInfo ({commit, error}, payload) {
     return axios.get('https://dev.to/api/users/me',
     {
       headers: {
-        'api-key': 'ryyh5CL3TkCdVtp3Ya54Nruv',
+        'api-key': payload,
       },
     }).then(res => {
       commit('setUserInfo', res.data);
     })
     .catch(e => {
-      error(e)
+      console.log(e)
     })
   }
 };
