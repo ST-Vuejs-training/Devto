@@ -14,6 +14,9 @@ const mutations = {
   setUserInfo(state, payload) {
     state.userInfo = payload;
   },
+  clearUserInfo(state) {
+    state.userInfo = null;
+  },
 };
 
 const actions = {

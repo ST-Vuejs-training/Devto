@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     logout() {
-      this.currentUser = "";
+      this.$store.commit("clearUserInfo");
     },
   },
   async mounted() {
