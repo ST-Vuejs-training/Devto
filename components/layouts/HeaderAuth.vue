@@ -74,7 +74,7 @@ export default {
   props: ["currentUser"],
   methods: {
     handleLogout() {
-      localStorage.removeItem("user");
+      localStorage.removeItem("api-key");
       this.$emit("logout");
     },
   },
