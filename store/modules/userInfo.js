@@ -1,36 +1,41 @@
-import axios from 'axios'
+import axios from "axios";
 
 const state = {
-  userInfo: null
+  userInfo: null,
 };
 
-const getters = {};
+const getters = {
+  userInfo(state) {
+    return state.userInfo;
+  },
+};
 
 const mutations = {
-  setUserInfo (state, payload) {
+  setUserInfo(state, payload) {
     state.userInfo = payload;
   },
 };
 
 const actions = {
-  getUserInfo ({commit, error}, payload) {
-    return axios.get('https://dev.to/api/users/me',
-    {
-      headers: {
-        'api-key': payload,
-      },
-    }).then(res => {
-      commit('setUserInfo', res.data);
-    })
-    .catch(e => {
-      console.log(e)
-    })
-  }
+  getUserInfo({ commit, error }, payload) {
+    return axios
+      .get("https://dev.to/api/users/me", {
+        headers: {
+          "api-key": payload,
+        },
+      })
+      .then((res) => {
+        commit("setUserInfo", res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
 };
 
 export default {
   state,
   getters,
   mutations,
-  actions
+  actions,
 };

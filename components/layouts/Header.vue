@@ -8,8 +8,8 @@
           </nuxt-link>
         </h1>
         <header-auth
-          v-if="currentUser.id"
-          :currentUser="currentUser"
+          v-if="userInfo?.id"
+          :currentUser="userInfo"
           @logout="logout"
         />
         <nav v-else class="nav-auth">
@@ -34,24 +34,29 @@
 <script>
 import { media } from "@/shared/constants/assetsUrl";
 import HeaderAuth from "@/components/layouts/HeaderAuth";
+
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   data() {
-    return { media, currentUser: {} };
+    return { media };
   },
   components: {
     HeaderAuth,
+  },
+  computed: {
+    ...mapGetters(["userInfo"]),
   },
   methods: {
     logout() {
       this.currentUser = "";
     },
   },
-  mounted() {
-    const userInfo = localStorage.getItem("user") || "";
-    console.log("--------", userInfo);
-    if (userInfo) {
-      this.currentUser = JSON.parse(userInfo);
+  async mounted() {
+    const apiKey = localStorage.getItem("api-key");
+    if (!this.userInfo?.id && apiKey) {
+      await this.$store.dispatch("getUserInfo", JSON.parse(apiKey));
     }
-  }
+  },
 };
 </script>

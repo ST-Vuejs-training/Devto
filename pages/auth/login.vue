@@ -83,10 +83,10 @@ export default {
     checkForm: async function (e) {
       e.preventDefault();
       if (this.apikey) {
-        await this.$store.dispatch('getUserInfo', this.apikey);
+        await this.$store.dispatch("getUserInfo", this.apikey);
         const userInfo = this.$store.state.userInfo.userInfo;
         if (userInfo.id) {
-          localStorage.setItem("user", JSON.stringify(userInfo));
+          localStorage.setItem("api-key", JSON.stringify(this.apikey));
           this.$router.push("/");
         }
         return true;
