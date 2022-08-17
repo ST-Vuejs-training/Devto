@@ -7,8 +7,12 @@
             <img :src="media.LOGO" alt="Blog" class="logo-img" />
           </nuxt-link>
         </h1>
-        <!-- <header-auth v-if="store?.token" /> -->
-        <nav class="nav-auth">
+        <header-auth
+          v-if="currentUser.id"
+          :currentUser="currentUser"
+          @logout="logout"
+        />
+        <nav v-else class="nav-auth">
           <ul class="flex nav-list">
             <li class="nav-item">
               <button class="btn btn-flat-primary" @click="login">
@@ -28,15 +32,27 @@
 </template>
 
 <script>
-import { media } from '@/shared/constants/assetsUrl';
-// import HeaderAuth from '@/components/';
+import { media } from "@/shared/constants/assetsUrl";
+import HeaderAuth from "@/components/layouts/HeaderAuth";
 export default {
   data() {
-    return { media };
+    return { media, currentUser: {} };
   },
-  //   components: {
-  //     HeaderAuth,
-  //   },
+  components: {
+    HeaderAuth,
+  },
+  methods: {
+    logout() {
+      this.currentUser = "";
+    },
+  },
+  mounted() {
+    const userInfo = localStorage.getItem("user") || "";
+    console.log("--------", userInfo);
+    if (userInfo) {
+      this.currentUser = JSON.parse(userInfo);
+    }
+  },
   methods: {
     async login() {
       await this.$store.dispatch('getUserInfo');

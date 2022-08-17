@@ -69,7 +69,8 @@ header.page-header {
   .user-img {
     @include pxRem(width, 32);
     @include pxRem(height, 32);
-    @include border-radius(16);
+    // @include border-radius(16);
+    border-radius: 50%;
   }
 }
 
