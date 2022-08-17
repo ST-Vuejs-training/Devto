@@ -8,13 +8,15 @@
             <template v-for="(article, index) in articles">
               <li class="crayons-item" :key="index">
                 <nuxt-link
-                  :to="`/${article.user.name}/${article.id}`"
+                  :to="`/${article.user.username}/${article.id}`"
                   class="crayons-link mb-1"
                 >
                   {{ article.title }}
                 </nuxt-link>
                 <div>
-                  <span class="crayons-comment">{{ article.user.name }}</span>
+                  <span class="crayons-comment">{{
+                    article.user.username
+                  }}</span>
                 </div>
               </li>
             </template>

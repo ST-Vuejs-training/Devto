@@ -51,9 +51,6 @@
       @include pxRem(font-size, map-get($font-size, lg));
     }
   }
-  &-body {
-    @include pxRem(padding-left, 40);
-  }
   .float-right {
     @include pxRem(top, 16);
     @include pxRem(right, 16);

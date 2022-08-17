@@ -2,9 +2,7 @@
   <nav class="nav-user">
     <ul class="flex nav-list">
       <li class="nav-item fl-center-y">
-        <nuxt-link class="btn btn-primary" to="/articles/new">
-          Create Post
-        </nuxt-link>
+        <nuxt-link class="btn btn-primary" to="/new"> Create Post </nuxt-link>
       </li>
       <li class="nav-item ml-4">
         <div class="user">
@@ -28,7 +26,7 @@
                 </nuxt-link>
               </li>
               <li class="dropdown-item">
-                <nuxt-link to="/articles/new" class="dropdown-item-link">
+                <nuxt-link to="/new" class="dropdown-item-link">
                   Create Post
                 </nuxt-link>
               </li>
@@ -74,7 +72,7 @@ export default {
   props: ["currentUser"],
   methods: {
     handleLogout() {
-      localStorage.removeItem("user");
+      localStorage.removeItem("api-key");
       this.$emit("logout");
     },
   },

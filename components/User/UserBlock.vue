@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import InlineErrorBlock from '@/components/ErrorBlock';
+import InlineErrorBlock from "@/components/ErrorBlock";
 
 export default {
   components: {
@@ -87,20 +87,20 @@ export default {
   },
   props: [],
   async fetch() {
-    this.user = this.$store.state.userInfo.userInfo;
-    if (!this.user) {
-      // set status code on server
-      if (process.server) {
-        this.$nuxt.context.res.statusCode = 404;
-      }
-      throw new Error('User not found');
+    const res = await fetch(
+      `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
+    );
+
+    if (!res.ok) {
+      throw new Error(`User ${this.$route.params.username} not found`);
     }
+    this.user = await res.json();
   },
   fetchOnServer: false,
   data() {
     return {
       user: null,
     };
-  }
+  },
 };
 </script>
