@@ -4,7 +4,14 @@
       <div class="article-new py-4 flex-center-x flex-start-y">
         <main class="main">
           <article class="article">
-            <div class="article-status pb-2">
+            <div v-if="addImg" class="article-status pb-2">
+              <div class="article-img-new flex">
+                <label class="label mb-2" @click="toggleAddImg"
+                  >Add Cover Image</label
+                >
+              </div>
+            </div>
+            <div v-else class="article-status pb-2" @click="toggleAddImg">
               <div class="article-status-img flex">
                 <label class="label mb-2">Cover Image</label>
                 <img class="img-upload" :src="COVER_DEFAULT" :alt="coverName" />
@@ -53,6 +60,7 @@ export default {
         content: "Write your post content here...",
       },
       COVER_DEFAULT: "https://picsum.photos/600/400",
+      addImg: true,
     };
   },
   methods: {
@@ -75,6 +83,9 @@ export default {
         throw error;
       }
       console.groupEnd();
+    },
+    toggleAddImg() {
+      this.addImg = !this.addImg;
     },
   },
 };

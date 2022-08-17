@@ -50,9 +50,24 @@
       @include pxRem(padding, 8 10);
       @include pxRem(min-height, 400);
     }
+    .article-img-new {
+      label {
+        width: 30%;
+        border: 2px solid #d6d6d7;
+        text-align: center;
+        padding: 5px;
+        border-radius: 8px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
     .article-status-img {
       label {
         width: 30%;
+        &:hover {
+          cursor: pointer;
+        }
       }
       justify-content: space-between;
       img {
