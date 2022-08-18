@@ -27,6 +27,20 @@
                   :rows="2"
                 />
               </div>
+              <vue-tags-input
+                v-model="tag"
+                :tags="tags"
+                @tags-changed="(newTags) => (tags = newTags)"
+              >
+                <template slot="autocomplete-header">
+                  <strong>Select your favorite bike maker ↓</strong>
+                </template>
+                <template slot="autocomplete-footer">
+                  <small>
+                    <em>Or keep going with your worlds...</em>
+                  </small>
+                </template>
+              </vue-tags-input>
               <div class="box box-content flex-col">
                 <div class="editor">
                   <quill-editor
@@ -63,6 +77,8 @@ export default {
       },
       COVER_DEFAULT: "https://picsum.photos/600/400",
       addImg: true,
+      tag: "",
+      tags: [],
     };
   },
   methods: {
@@ -75,6 +91,7 @@ export default {
     },
     async handleCreateArticle() {
       try {
+        const tags = this.solveTags(this.tags);
         const apiKey = localStorage.getItem("api-key");
         const body = this.article;
         body.content = document.querySelector(".ql-editor").innerHTML;
@@ -83,6 +100,7 @@ export default {
             title: body.title,
             body_markdown: body.content,
             published: true,
+            tags: tags,
           },
         };
         if (!this.addImg) {
@@ -104,6 +122,13 @@ export default {
     },
     toggleAddImg() {
       this.addImg = !this.addImg;
+    },
+    solveTags(tags) {
+      let tagArr = [];
+      tags.map((item) => {
+        tagArr.push(item.text);
+      });
+      return tagArr;
     },
   },
 };
