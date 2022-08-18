@@ -6,7 +6,7 @@
       >
         <li>
           <a
-            href="/"
+            href="https://dev.to/"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -49,7 +49,7 @@
 
         <li>
           <a
-            href="/readinglist"
+            href="https://dev.to/readinglist"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -114,7 +114,7 @@
 
         <li>
           <a
-            href="/listings"
+            href="https://dev.to/listings"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -147,7 +147,7 @@
 
         <li>
           <a
-            href="/pod"
+            href="https://dev.to/pod"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -201,7 +201,7 @@
 
         <li>
           <a
-            href="/videos"
+            href="https://dev.to/videos"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -231,7 +231,7 @@
 
         <li>
           <a
-            href="/tags"
+            href="https://dev.to/tags"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -263,7 +263,7 @@
 
         <li>
           <a
-            href="/faq"
+            href="https://dev.to/faq"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -339,7 +339,7 @@
 
         <li>
           <a
-            href="/sponsorships"
+            href="https://dev.to/sponsorships"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -361,7 +361,7 @@
 
         <li>
           <a
-            href="/about"
+            href="https://dev.to/about"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
@@ -447,7 +447,7 @@
 
         <li>
           <a
-            href="/contact"
+            href="https://dev.to/contact"
             class="sidebar-navigation-link c-link c-link--block c-link--icon-left"
           >
             <span class="c-link__icon">
