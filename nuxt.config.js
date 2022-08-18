@@ -23,6 +23,7 @@ export default {
     "~/plugins/vue-placeholders.ts",
     "~/plugins/vue-observe-visibility.client.ts",
     { src: "~plugins/quilljs.ts", ssr: false },
+    { src: "~/plugins/vue-tags-input.ts", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
