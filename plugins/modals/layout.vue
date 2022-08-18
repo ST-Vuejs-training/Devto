@@ -78,11 +78,12 @@ export default {
 
 /* Modal Content/Box */
 .v-modal__body {
-  background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
+  min-width: 300px; /* Could be more or less, depending on screen size */
+  background-color: #fefefe;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 4px;
 }
 
 </style>

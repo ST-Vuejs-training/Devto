@@ -49,16 +49,38 @@
                 </nuxt-link>
               </li>
               <li class="dropdown-item fl-center-x">
-                <button class="btn btn-flat-primary" @click="handleLogout">
+                <button class="btn btn-flat-primary" @click="openModal">
                   Sign Out
                 </button>
+                
               </li>
             </ul>
           </div>
         </div>
       </li>
     </ul>
+    <v-modal name="confirm-logout-modal">
+      <div class="popup">
+        <div class="popup-body pd-2 mb-2">
+          <p class="popup-content">
+            Do you wanna sign out?
+          </p>
+        </div>
+        <div class="popup-footer pd-2">
+          <div class="popup-action flex-end-x">
+            <button class="btn btn-outline-primary" @click="closeModal">
+              Cancel
+            </button>
+            <button class="btn btn-primary ml-2" @click="handleLogout">
+              Ok
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    </v-modal>
   </nav>
+  
 </template>
 
 <script>
@@ -71,6 +93,12 @@ export default {
   //   },
   props: ["currentUser"],
   methods: {
+    closeModal() {
+      this.$modal.close({name: 'confirm-logout-modal'});
+    },
+    openModal() {
+      this.$modal.open({name: 'confirm-logout-modal'});
+    },
     handleLogout() {
       localStorage.removeItem("api-key");
       this.$emit("logout");
