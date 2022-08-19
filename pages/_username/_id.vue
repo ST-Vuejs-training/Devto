@@ -51,6 +51,7 @@
               <div class="content" v-html="article.body_html" />
             </template>
           </article>
+          <comments-block v-if="article.title" class="comments-block" />
         </template>
       </div>
 
@@ -58,7 +59,6 @@
         <user-block class="aside-username-block" />
       </div>
     </div>
-    <comments-block v-if="article.title" class="comments-block" />
   </div>
 </template>
 
