@@ -75,7 +75,6 @@ export default {
     ).then((res) => res.json());
 
     this.articles = this.articles.concat(articles);
-    console.log(this.articles);
   },
 
   data() {

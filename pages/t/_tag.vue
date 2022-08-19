@@ -63,8 +63,6 @@ export default {
       `https://dev.to/api/articles?tag=${this.$route.params.tag}&top=365&page=${this.currentPage}`
     ).then((res) => res.json());
 
-    console.log("ARRR ", articles);
-
     if (!articles.length && this.currentPage === 1) {
       // set status code on server
       if (process.server) {

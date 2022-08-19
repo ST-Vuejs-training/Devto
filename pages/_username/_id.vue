@@ -92,8 +92,6 @@ export default {
       `https://dev.to/api/articles/${this.$route.params.id}`
     ).then((res) => res.json());
 
-    console.log("ARTICLE ----- ", article);
-
     if (article.id && article.user.username === this.$route.params.username) {
       this.article = article;
       // this.$store.commit('SET_CURRENT_ARTICLE', this.article);

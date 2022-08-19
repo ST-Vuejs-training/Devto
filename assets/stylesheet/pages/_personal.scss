@@ -16,6 +16,18 @@
   .article-card-block {
     width: calc(100% - 2 * 1rem);
     margin: 1rem;
+    position: relative;
+    .edit_btn {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      padding: 7px;
+      border-radius: 3px;
+      &:hover {
+        cursor: pointer;
+        background: #b2b1b1;
+      }
+    }
   }
 }
 
