@@ -1,68 +1,145 @@
-# devto
+<p>
+<h1 align="center">
+  ST - Devto Nuxt.js
+</h1>
+<p>
+<p align="center" style="font-size: 1.2rem;">Cloned dev.to web with Nuxtjs and devto.API</p>
 
-## Build Setup
+> [Read the docs nuxtjs](https://nuxtjs.org/) |
+> [Dev.to website](https://dev.to/)
+> |
+> [Cloned devto nuxtjs](https://devtonuxtjs.herokuapp.com/)
 
-```bash
-# install dependencies
-$ npm install
+<hr />
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+[![Dev.to blog](https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white)](https://dev.to/)
+[![Nuxtjs](https://img.shields.io/badge/Nuxt-002E3B?style=for-the-badge&logo=nuxtdotjs&logoColor=#00DC82&suffix='1234')](https://nuxtjs.org/)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+## Table of Contents
 
-# generate static project
-$ npm run generate
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Installation](#installation)
+- [Features](#features)
+- [List all posts](#list-all-posts)
+- [List a article's detail](#list-a-article's-detail)
+- [List articles with tags](#list-articles-with-tags)
+- [Show user's info](#show-users-info)
+- [Show user's articles](#show-users-articles)
+- [Login](#login)
+- [Create a article](#create-a-article)
+- [Update a article](#update-a-article)
+- [Get comments](#get-comments)
+- [Advanced nuxtjs](#advanced-nuxtjs)
+- [Contributors](#contributors)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+This module is distributed via [npm][npm] which is bundled with [node][node] and
+should be installed as one of your project's `dependencies`:
+
+```
+npm install
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+Run local
 
-## Special Directories
+```ts
+npm run dev
+```
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+> Cloned devto app is running at `http://localhost:3000` 👍
 
-### `assets`
+build for production and launch server
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+```
+npm run build
+npm run start
+```
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+generate static project
 
-### `components`
+```
+npm run generate
+```
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+## Features
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+### [List all posts](https://developers.forem.com/api/#operation/getArticles)
 
-### `layouts`
+> method: GET | `https://dev.to/api/articles`
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+List all latest articles
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+### [List a article's detail](https://developers.forem.com/api/#operation/getArticleById)
 
-### `pages`
+> method: GET | `https://dev.to/api/articles/{id}`
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+List a article's detail with id
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+### [List articles with tags](https://developers.forem.com/api/#operation/getArticles)
 
-### `plugins`
+> method: GET | `https://dev.to/api/articles?tags={tag}`
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+List articles with tags
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+### [Show user's info](https://developers.forem.com/api/#operation/getUser)
 
-### `static`
+> method: GET | `https://dev.to/api/users/by_username?url=ben`
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
+Show a user's information
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+### [Show user's articles](https://developers.forem.com/api/#operation/getArticles)
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+> method: GET | `https://dev.to/api/articles?username={name}`
 
-### `store`
+Show all articles of user
 
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+### [Login](https://developers.forem.com/api/)
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+> method: POST | `https://dev.to/api/users/me`
+
+Get auth user info
+
+### [Create a article](https://developers.forem.com/api/#operation/createArticle)
+
+> method: POST | `https://dev.to/api/articles`
+
+Create a article
+
+### [Update a article](https://developers.forem.com/api/#operation/updateArticle)
+
+> method: PUT | `https://dev.to/api/articles/{id}`
+
+Update a article
+
+### [Get comments](https://developers.forem.com/api/#operation/getCommentsByArticleId)
+
+> method: GET | `https://dev.to/api/comments?a_id={id}`
+
+Get all comments of a article
+
+## Advanced nuxtjs
+
+<!-- This table was generated via http://www.tablesgenerator.com/markdown_tables -->
+
+| property            | detail                                  | description                                    |
+| ------------------- | --------------------------------------- | ---------------------------------------------- |
+| `fetch, fetchState` | `fetch script`                          | Nuxtjs function                                |
+| `middleware`        | `check auth`                            | Check auth before access one page              |
+| `plugins`           | `modal, quills, placeholder, tag input` | Use in nuxtjs app like external part of nuxtjs |
+| `stores`            | `vueX`                                  | Store user's info                              |
+| `eventbus`          | `modal`                                 |                                                |
+
+## Contributors
+
+- [Van Tran. H](https://github.com/st-vantran)
+- [Quang Nguyen. H. D](https://github.com/st-quangnguyen2)
+- [Vy Duong. T](https://github.com/st-vyduong)
+
+<p>
