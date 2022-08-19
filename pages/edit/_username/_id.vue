@@ -85,8 +85,14 @@ export default {
     const article = await fetch(
       `https://dev.to/api/articles/${this.$route.params.id}`
     ).then((res) => res.json());
-    this.article = article;
-    this.article.content = article.body_html;
+
+    let newTags = [];
+    article.tags.map((item) => {
+      newTags.push({ text: item });
+    });
+
+    this.article = { ...article, content: article.body_html };
+    this.tags = newTags;
   },
   methods: {
     onEditorChange(e) {
