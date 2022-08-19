@@ -31,28 +31,17 @@
                 </nuxt-link>
               </li>
               <li class="dropdown-item">
-                <nuxt-link to="/personal/bookmark" class="dropdown-item-link">
-                  Bookmark
-                </nuxt-link>
-              </li>
-              <li class="dropdown-item">
-                <nuxt-link to="/personal" class="dropdown-item-link">
-                  Personal
-                </nuxt-link>
-              </li>
-              <li class="dropdown-item">
                 <nuxt-link
-                  to="/user/profile/update/change-password"
+                  :to="`/${currentUser.username}`"
                   class="dropdown-item-link"
                 >
-                  Change Password
+                  Personal
                 </nuxt-link>
               </li>
               <li class="dropdown-item fl-center-x">
                 <button class="btn btn-flat-primary" @click="openModal">
                   Sign Out
                 </button>
-                
               </li>
             </ul>
           </div>
@@ -62,9 +51,7 @@
     <v-modal name="confirm-logout-modal">
       <div class="popup">
         <div class="popup-body pd-2 mb-2">
-          <p class="popup-content">
-            Do you wanna sign out?
-          </p>
+          <p class="popup-content">Do you wanna sign out?</p>
         </div>
         <div class="popup-footer pd-2">
           <div class="popup-action flex-end-x">
@@ -77,10 +64,8 @@
           </div>
         </div>
       </div>
-      
     </v-modal>
   </nav>
-  
 </template>
 
 <script>
@@ -94,10 +79,10 @@ export default {
   props: ["currentUser"],
   methods: {
     closeModal() {
-      this.$modal.close({name: 'confirm-logout-modal'});
+      this.$modal.close({ name: "confirm-logout-modal" });
     },
     openModal() {
-      this.$modal.open({name: 'confirm-logout-modal'});
+      this.$modal.open({ name: "confirm-logout-modal" });
     },
     handleLogout() {
       localStorage.removeItem("api-key");
