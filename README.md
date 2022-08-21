@@ -74,55 +74,55 @@ npm run generate
 
 ## Features
 
-### [List all posts](https://developers.forem.com/api/#operation/getArticles)
+### [List all posts](https://devtonuxtjs.herokuapp.com/)
 
 > method: GET | `https://dev.to/api/articles`
 
 List all latest articles
 
-### [List a article's detail](https://developers.forem.com/api/#operation/getArticleById)
+### [List a article's detail](https://devtonuxtjs.herokuapp.com/sadeedpv/1171385)
 
 > method: GET | `https://dev.to/api/articles/{id}`
 
 List a article's detail with id
 
-### [List articles with tags](https://developers.forem.com/api/#operation/getArticles)
+### [List articles with tags](https://devtonuxtjs.herokuapp.com/t/github)
 
 > method: GET | `https://dev.to/api/articles?tags={tag}`
 
 List articles with tags
 
-### [Show user's info](https://developers.forem.com/api/#operation/getUser)
+### [Show user's info](https://devtonuxtjs.herokuapp.com/stvantran)
 
 > method: GET | `https://dev.to/api/users/by_username?url=ben`
 
 Show a user's information
 
-### [Show user's articles](https://developers.forem.com/api/#operation/getArticles)
+### [Show user's articles](https://devtonuxtjs.herokuapp.com/stvantran)
 
 > method: GET | `https://dev.to/api/articles?username={name}`
 
 Show all articles of user
 
-### [Login](https://developers.forem.com/api/)
+### [Login](https://devtonuxtjs.herokuapp.com/auth/login)
 
 > method: POST | `https://dev.to/api/users/me`
 
 Get auth user info
 
-### [Create a article](https://developers.forem.com/api/#operation/createArticle)
+### [Create a article](https://devtonuxtjs.herokuapp.com/new)
 
 > method: POST | `https://dev.to/api/articles`
 
 Create a article
 
-### [Update a article](https://developers.forem.com/api/#operation/updateArticle)
+### [Update a article](https://devtonuxtjs.herokuapp.com/edit/stvantran/1169436)
 
 > method: PUT | `https://dev.to/api/articles/{id}`
 
 Update a article
 
-### [Get comments](https://developers.forem.com/api/#operation/getCommentsByArticleId)
+### [Get comments](https://devtonuxtjs.herokuapp.com/dechamp/1172149)
 
 > method: GET | `https://dev.to/api/comments?a_id={id}`
 
