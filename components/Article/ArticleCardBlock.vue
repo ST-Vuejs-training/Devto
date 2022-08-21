@@ -36,7 +36,10 @@
         <time>{{ article.readable_publish_date }}</time>
       </div>
     </div>
-    <nuxt-link :to="`/edit/${article.user.username}/${article.id}`">
+    <nuxt-link
+      v-if="userInfo"
+      :to="`/edit/${article.user.username}/${article.id}`"
+    >
       <button
         class="edit_btn"
         v-if="this.$route.params.username === userInfo?.username"
