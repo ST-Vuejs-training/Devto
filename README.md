@@ -33,6 +33,10 @@
   - [Create a article](#create-a-article)
   - [Update a article](#update-a-article)
   - [Get comments](#get-comments)
+- [Nuxtjs Concepts](#nuxtjs-concepts)
+  - [Work flow](#work-flow)
+  - [Directives](#directives)
+  - [Computed & Method](#computed-&-method)
 - [Advanced nuxtjs](#advanced-nuxtjs)
 - [Contributors](#contributors)
 
@@ -124,17 +128,50 @@ Update a article
 
 Get all comments of a article
 
+## Nuxtjs Concepts
+
+### [Work flow](https://nuxtjs.org/docs/concepts/nuxt-lifecycle)
+
+<img src="https://seal.deha.vn/wp-content/uploads/2021/09/nuxt-schema.png"/>
+
+### [Directives](https://vuejs.org/api/built-in-directives.html)
+
+```ts
+    <nuxt-link
+        v-for="tag in article.tags"
+        :key="tag"
+        :to="{ name: 't-tag', params: { tag } }"
+        class="tag">
+            #{{ tag }}
+    </nuxt-link>
+```
+
+### [Computed & Method]()
+
+<b>header.vue</b>
+
+```ts
+  computed: {
+    ...mapGetters(["userInfo"]),
+  },
+  methods: {
+    logout() {
+      this.$store.commit("clearUserInfo");
+    },
+  },
+```
+
 ## Advanced nuxtjs
 
 <!-- This table was generated via http://www.tablesgenerator.com/markdown_tables -->
 
-| property            | detail                                  | description                                    |
-| ------------------- | --------------------------------------- | ---------------------------------------------- |
-| `fetch, fetchState` | `fetch script`                          | Nuxtjs function                                |
-| `middleware`        | `check auth`                            | Check auth before access one page              |
-| `plugins`           | `modal, quills, placeholder, tag input` | Use in nuxtjs app like external part of nuxtjs |
-| `stores`            | `vueX`                                  | Store user's info                              |
-| `eventbus`          | `modal`                                 |                                                |
+| property            | detail                                  | description                                            |
+| ------------------- | --------------------------------------- | ------------------------------------------------------ |
+| `fetch, fetchState` | `fetch script`                          | `$fetchState.pending $fetchState.error `               |
+| `middleware`        | `check auth`                            | Check auth before access one page `middleware/auth.ts` |
+| `plugins`           | `modal, quills, placeholder, tag input` | `plugins/vue-tags-input.js --> Vue.use(VueTagsInput);` |
+| `stores`            | `vueX`                                  | Store user's info                                      |
+| `eventbus`          | `modal`                                 | `this.$modal.open({ name: "confirm-logout-modal" });`  |
 
 ## Contributors
 
