@@ -81,6 +81,7 @@ export default {
       tags: [],
     };
   },
+  middleware: ["auth"],
   async fetch() {
     const article = await fetch(
       `https://dev.to/api/articles/${this.$route.params.id}`

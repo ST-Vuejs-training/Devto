@@ -81,6 +81,7 @@ export default {
       tags: [],
     };
   },
+  middleware: ["auth"],
   methods: {
     onEditorChange(e) {
       console.log("onEditorChange", e);
