@@ -175,7 +175,7 @@ Get all comments of a article
 
 ## Contributors
 
-- [Van Tran. H](https://github.com/st-vantran)
+- [Van Tran. H](https://github.com/st-vantran) van tran
 - [Quang Nguyen. H. D](https://github.com/st-quangnguyen2)
 - [Vy Duong. T](https://github.com/st-vyduong)
 
